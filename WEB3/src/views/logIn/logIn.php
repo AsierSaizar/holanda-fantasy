@@ -7,7 +7,7 @@ require_once("../../required/head.php");
 
 <div class="wrapper">
     <div class="right">
-        <div class="blur-background"></div>
+        
 
         <div class="tabs">
             <ul>

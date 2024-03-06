@@ -11,20 +11,13 @@ header {
 .container {
     width: 90%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
     justify-content: space-around;
     align-items: center;
     
 }
 
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas en dispositivos móviles */
-        justify-content: center; /* Centra los elementos */
-    }
-}
+
 h2 {
     color: white; 
     margin-right: 20px;
@@ -85,7 +78,6 @@ nav ul li a:hover {
     background-color: transparent;
     border-bottom: 2px solid white;
     padding: 5px;
-    margin-left: 70px;
     text-decoration: none;
     color: rgb(255, 255, 255);
    
@@ -154,10 +146,9 @@ nav ul li a:hover {
     padding: 8px;
     position: relative;
   }
-
-  .language{
-    margin-left: 85px;
-  }
+.logInBtn{
+  width: min-content;
+}
   #hizkuntzaBtn{
     border: 0px solid;
     border-bottom: 2px solid;
@@ -173,4 +164,7 @@ nav ul li a:hover {
   }
   #selectHizkuntzaAukeratzeko option{
     color: black;
+  }
+  .btn-primary {
+    padding-left: 10px;
   }

@@ -19,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
+    <script src="https://kit.fontawesome.com/7f605dc8fe.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="<?= HREF_SRC_DIR ?>/css/header.css">
 
@@ -32,10 +33,13 @@
         <div class="container">
 
             <!-- SIDE BARRANTZAT DA HAUUU //////////////////-->
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i
-                    class="fa-solid fa-bars"></i>
-            </button>
+            <div>
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
 
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
                 id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -65,9 +69,7 @@
                 </div>
             </div>
             <!-- SIDE BARRANTZAT DA HAUUU //////////////////-->
-            <div class="copanyName">
-                <h2>Holanda Fantasy</h2>
-            </div>
+
 
 
             <div class="input__container">
@@ -79,8 +81,7 @@
                             fill-rule="evenodd" fill="#17202A"></path>
                     </svg>
                 </button>
-                <input id="search-input" type="text" name="text" class="input__search"
-                    placeholder="Search">
+                <input id="search-input" type="text" name="text" class="input__search" placeholder="Search">
             </div>
 
 

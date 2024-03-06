@@ -10,13 +10,21 @@
 
 body {
     background-image: url("holandaBackground.jpeg");
+    background-size: cover;
     background-repeat: no-repeat;
+    
 }
-
+@media only screen and (max-width: 768px) {
+    body {
+        background-image: url("holandaBackground.jpeg");
+        background-size:auto;
+        background-repeat:initial;
+    }
+}
 .wrapper {
     display: flex;
     max-width: 560px;
-    width: 100%;
+    width: 170%;
     height: 390px;
     position: absolute;
     top: 50%;
