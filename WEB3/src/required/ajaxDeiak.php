@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 if (isset($_POST["action"])) {
     switch ($_POST["action"]) {
@@ -39,11 +39,20 @@ if (isset($_POST["action"])) {
             $sql = "SELECT * FROM weberabiltzaileak where emaila = '$emaila' and pasahitza = '$pasahitza'";
             $result = $conn->query($sql);
 
-            while ($row = $result->fetch_assoc()) {
-                $ezizenaPertsonaHorrena = $row["ezizena"];
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $ezizenaPertsonaHorrena = $row["ezizena"];
+                }
+                $_SESSION["LogIn"] = $ezizenaPertsonaHorrena;
+            } else {
+                echo "Emaila edo pasahitza ez da zuzena.";
             }
-            echo "Zure ezizena hau da:" . $ezizenaPertsonaHorrena;
 
+            break;
+        }
+        case "logOut": {
+            $_SESSION["LogIn"] = "";
+            echo "Sesioa ondo itxi da.";
             break;
         }
     }

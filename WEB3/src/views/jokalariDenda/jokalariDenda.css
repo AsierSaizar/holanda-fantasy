@@ -20,39 +20,49 @@ body {
 @media only screen and (max-width: 1233px) {
     body {
         background-image: url("EstadioHolanda.jpg");
-        background-size:auto;
-        background-repeat:initial;
+        background-size: auto;
+        background-repeat: initial;
         background-position: 0px 0px;
     }
 }
 
 .containerJokalariakMenu {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 0.5fr;
+    grid-template-columns: 2fr 1fr;
     margin-top: 30px;
     margin-left: 30px;
     margin-right: 30px;
     border: 1px solid;
     border-radius: 20px;
-    backdrop-filter:  blur(5px);
+    backdrop-filter: blur(5px);
 
 }
-.containerJokalariak{
+
+.containerJokalariak {
     margin-left: 20px;
     margin-right: 20px;
 }
+
 .probaBack {
     color: white;
     text-align: center;
+    padding-bottom: 2px;
 }
-.btnArrowJokalariak{
+.probaBack1 {
+    color: white;
+    text-align: left;
+    padding-top: 6px;
+}
+
+.btnArrowJokalariak {
     border: 0px solid;
     background-color: transparent;
     color: white;
-    font-size: 30px; 
+    font-size: 30px;
 }
-.jokalariBakoitza{
-    background-color:rgb(249, 249, 249);
+
+.jokalariBakoitza {
+    background-color: rgb(249, 249, 249);
     border: 3px solid;
     border-radius: 20px;
     border-color: #fe9c00;
@@ -62,7 +72,56 @@ body {
     text-align: center;
 
 }
-.containerJokalariak{
+
+.containerJokalariak {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
+
+
+
+#selectTaldea {
+    border: 0px solid;
+    background-color: transparent;
+    color: white;
+    padding: 5px;
+}
+
+#selectTaldea option {
+    color: black;
+}
+.search-buttonFiltro {
+    border: 0px solid;
+    border-bottom: 2px solid;
+    background-color: transparent;
+    color: white;
+    padding: 5px;
+  }
+
+  .sobreDivClass{
+    background-image: url("sobreakPNG.png");
+    background-color: transparent;
+    background-size:150px 240px;
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 15em;
+    text-align: center;
+    padding-top: 30px;
+
+  }
+  .containerDiruaOsoa{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .sobreErosiBtn{
+    border: 0px solid;
+    border-radius: 10px;
+    background-color: goldenrod;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+  }

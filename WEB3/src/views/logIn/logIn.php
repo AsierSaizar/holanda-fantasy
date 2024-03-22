@@ -37,6 +37,9 @@ require_once("../../required/head.php");
                 <input id="pasahitzaLog" type="password" placeholder="Password" class="input">
             </div>
             <div class="btnLogIn"><a class="btnLogInletra" href="#">Login</a></div>
+        </div><br>
+        <div class="logOut">
+            <center><button class="logOutBtn"><i class="fa-solid fa-right-from-bracket"></i>Log Out</button></center>
         </div>
     </div>
 </div>

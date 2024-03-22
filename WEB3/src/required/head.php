@@ -7,7 +7,7 @@
     define('HREF_VIEWS_DIR', '/Desktop/HolandaFantasy/WEB3/src/views'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
     define('HREF_SRC_DIR', '/Desktop/HolandaFantasy/WEB3/src'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
     $link = APP_DIR . "src/language/translations.php";
-    require_once($link); //APP_DIR erabilita itzulpenen dokumentua atzitu dugu.
+    require_once ($link); //APP_DIR erabilita itzulpenen dokumentua atzitu dugu.
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,12 +89,20 @@
             <div class="language">
                 <!-- HTML-A -->
                 <div class="header grid-elem">
-                    <?php require_once(APP_DIR . "/src/required/selectLang.php"); ?>
+                    <?php require_once (APP_DIR . "/src/required/selectLang.php"); ?>
                 </div>
             </div>
 
+            <?php
+
+            if (($_SESSION['LogIn'])!="") {
+                $ezizena = $_SESSION["LogIn"];
+            }else{
+                $ezizena = "LogIn";
+            }
+            ?>
             <div class="logInBtn">
-                <a class="logInBtnA" href="<?= HREF_SRC_DIR ?>/views/logIn/logIn.php">LogIn</a>
+                <a class="logInBtnA" href="<?= HREF_SRC_DIR ?>/views/logIn/logIn.php"><?=$ezizena?></a>
             </div>
         </div>
     </header>

@@ -106,3 +106,8 @@ body {
     text-decoration: none;
 }
 
+.logOutBtn{
+    border: 0px solid;
+    background-color: transparent;
+    color: rgb(70, 70, 255);
+}
