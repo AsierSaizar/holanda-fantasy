@@ -65,8 +65,34 @@ require_once("../../required/head.php");
             </form>
         </div>
 
+        <?php
+
+            if (($_SESSION['LogIn'])!="") {
+                $ezizena = $_SESSION["LogIn"];
+                
+                require_once("../../required/functions.php");
+                //require_once(HREF_SRC_DIR. "/required/functions.php");
+
+                $conn = connection();
+    
+                $sql = "SELECT * FROM weberabiltzaileak where ezizena = '$ezizena'";
+                $result = $conn->query($sql);
+    
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $erabiltzailearenDirua = $row["dirua"];
+                    }
+                } else {
+                    echo "ez dago ezizen horrekin usuariorik.";
+                }
+
+            }else{
+                $erabiltzailearenDirua = "0";
+            }
+        ?>
+
         <div class="diruaAgertzeko probaBack1">
-            <span>Zure dirua: Log in to see your money</span>
+            <span>Zure dirua: <?= $erabiltzailearenDirua ?>€</span>
         </div>
     </div>
 

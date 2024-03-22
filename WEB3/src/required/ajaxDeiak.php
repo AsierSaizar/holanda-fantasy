@@ -51,8 +51,13 @@ if (isset($_POST["action"])) {
             break;
         }
         case "logOut": {
-            $_SESSION["LogIn"] = "";
-            echo "Sesioa ondo itxi da.";
+            if (($_SESSION['LogIn'])!="") {
+                $_SESSION["LogIn"] = "";
+                echo "Sesioa ondo itxi da.";
+            }else{
+                echo "no";  
+            }
+
             break;
         }
     }

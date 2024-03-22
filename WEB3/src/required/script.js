@@ -204,9 +204,9 @@ $(document).ready(function () {
   //Log OUT /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
 
-
-
-  $(".logOutBtn").click(function () {
+  
+  
+$(".logOutBtn").click(function () {
     $.ajax({
       type: "POST",
       url: "../../required/ajaxDeiak.php",
@@ -217,8 +217,10 @@ $(document).ready(function () {
         console.log(response);
       },
     }).done(function (data) {
-      location.reload();
-      alert(data);
+      if(data!="no"){
+        location.reload();
+      }
+
     });
   });
   
