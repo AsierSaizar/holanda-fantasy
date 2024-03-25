@@ -191,6 +191,9 @@ $(document).ready(function () {
           console.log(response);
         },
       }).done(function (data) {
+        if (data == "Emaila edo pasahitza ez da zuzena.") {
+          alert(data);
+        }
         location.reload();
       });
     } else {
@@ -204,9 +207,7 @@ $(document).ready(function () {
   //Log OUT /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
 
-  
-  
-$(".logOutBtn").click(function () {
+  $(".logOutBtn").click(function () {
     $.ajax({
       type: "POST",
       url: "../../required/ajaxDeiak.php",
@@ -217,13 +218,12 @@ $(".logOutBtn").click(function () {
         console.log(response);
       },
     }).done(function (data) {
-      if(data!="no"){
+      if (data != "no") {
         location.reload();
       }
-
     });
   });
-  
+
   //Log OUT ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -242,5 +242,42 @@ $(".logOutBtn").click(function () {
     $(".containerDiruaOsoa").hide();
   });
   //JokalariakDiruaSwith ////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  
+  
+  
+  //Jokalaria erosi /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////
+
+  $(".saskiaBotoia").click(function () {
+    var botoianId = $(this).attr('id');
+    
+    var idZenbakia = botoianId.substring('saskiraGehitu'.length);
+
+    $.ajax({
+      type: "POST",
+      url: "../../required/ajaxDeiak.php",
+      data: {
+        action: "JokalariaErosi",
+        idZenbakia: idZenbakia,
+
+      },
+      success: function (response) {
+        console.log(response);
+      },
+    }).done(function (data) {
+      alert(data);
+      if (data=="Erregistroa zuzen egin da!"){
+        location.reload();
+
+      }
+    });
+    
+    
+    
+  });
+  
+  //Jokalaria erosi ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 });

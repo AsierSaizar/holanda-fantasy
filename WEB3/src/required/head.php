@@ -95,7 +95,7 @@
 
             <?php
 
-            if (($_SESSION['LogIn'])!="") {
+            if ((isset($_SESSION['LogIn']))and(($_SESSION['LogIn']) != "")) {
                 $ezizena = $_SESSION["LogIn"];
             }else{
                 $ezizena = "LogIn";
