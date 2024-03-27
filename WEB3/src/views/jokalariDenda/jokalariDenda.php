@@ -4,7 +4,32 @@ require_once ("../../required/head.php");
 ?>
 
 <link rel="stylesheet" href="<?= HREF_SRC_DIR ?>/views/jokalariDenda/jokalariDenda.css">
+<?php
 
+        if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
+            $ezizena = $_SESSION["LogIn"];
+
+            require_once ("../../required/functions.php");
+            //require_once(HREF_SRC_DIR. "/required/functions.php");
+        
+            $conn = connection();
+
+            $sql = "SELECT * FROM weberabiltzaileak where ezizena = '$ezizena'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $erabiltzailearenDirua = $row["dirua"];
+                }
+            } else {
+                echo "ez dago ezizen horrekin usuariorik.";
+            }
+
+        } else {
+            $erabiltzailearenDirua = "0";
+        }
+
+        ?>
 <div class="containerJokalariakMenu">
     <span>
         <center>
@@ -23,23 +48,32 @@ require_once ("../../required/head.php");
 
     </span>
 </div>
-
+<div class="diruaAgertzeko diruaAgertzeko2 probaBack1">
+        <span>Zure dirua:
+            <?= $erabiltzailearenDirua ?>€
+        </span>
+    </div>
 <div class="containerDiruaOsoa">
+    
     <div class="sobreDivClass" id="Sobre1">
         <span>Sobre Normal</span><br><br><br><br>
-        <button class="sobreErosiBtn sobreErosiBtn1">Erosi</button>
+        <button class="sobreErosiBtn" id="sobreErosiBtn1">Erosi</button><br>
+        <span>500€</span>
     </div>
     <div class="sobreDivClass" id="Sobre2">
         <span>Sobre Especial</span><br><br><br><br>
-        <button class="sobreErosiBtn sobreErosiBtn2">Erosi</button>
+        <button class="sobreErosiBtn" id="sobreErosiBtn2">Erosi</button><br>
+        <span>1000€</span>
     </div>
     <div class="sobreDivClass" id="Sobre3">
         <span>Sobre Epico</span><br><br><br><br>
-        <button class="sobreErosiBtn sobreErosiBtn3">Erosi</button>
+        <button class="sobreErosiBtn" id="sobreErosiBtn3">Erosi</button><br>
+        <span>2000€</span>
     </div>
     <div class="sobreDivClass" id="Sobre4">
-        <span>Sobre Leguendario</span><br><br><br><br>
-        <button class="sobreErosiBtn sobreErosiBtn4">Erosi</button>
+        <span>Sobre Legendario</span><br><br><br><br>
+        <button class="sobreErosiBtn" id="sobreErosiBtn4">Erosi</button><br>
+        <span>4000€</span>
     </div>
 </div>
 
@@ -50,47 +84,22 @@ require_once ("../../required/head.php");
         <div class="taldeaAukeratzeko probaBack">
             <form action="jokalariDenda.php" method="get">
                 <select name="selectTaldea" id="selectTaldea" class="selectTaldea search-input">
-                    <option value="Ajax" <?php if (isset ($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Ajax')
+                    <option value="Ajax" <?php if (isset($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Ajax')
                         echo 'selected="selected"'; ?>>Ajax</option>
-                    <option value="Fortuna" <?php if (isset ($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Fortuna')
+                    <option value="Fortuna" <?php if (isset($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Fortuna')
                         echo 'selected="selected"'; ?>>Fortuna</option>
-                    <option value="Groningen" <?php if (isset ($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Groningen')
+                    <option value="Groningen" <?php if (isset($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Groningen')
                         echo 'selected="selected"'; ?>>Groningen</option>
-                    <option value="Heracles" <?php if (isset ($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Heracles')
+                    <option value="Heracles" <?php if (isset($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Heracles')
                         echo 'selected="selected"'; ?>>Heracles</option>
-                    <option value="Utrecht" <?php if (isset ($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Utrecht')
+                    <option value="Utrecht" <?php if (isset($_GET['selectTaldea']) && $_GET['selectTaldea'] === 'Utrecht')
                         echo 'selected="selected"'; ?>>Utrecht</option>
                 </select>
                 <input class="search-buttonFiltro" type="submit" value="<?= trans("Bilatu") ?>" />
             </form>
         </div>
 
-        <?php
-
-        if (isset ($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
-            $ezizena = $_SESSION["LogIn"];
-
-            require_once ("../../required/functions.php");
-            //require_once(HREF_SRC_DIR. "/required/functions.php");
         
-            $conn = connection();
-
-            $sql = "SELECT * FROM weberabiltzaileak where ezizena = '$ezizena'";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $erabiltzailearenDirua = $row["dirua"];
-                }
-            } else {
-                echo "ez dago ezizen horrekin usuariorik.";
-            }
-            
-        } else {
-            $erabiltzailearenDirua = "0";
-        }
-        
-        ?>
 
         <div class="diruaAgertzeko probaBack1">
             <span>Zure dirua:
@@ -103,7 +112,7 @@ require_once ("../../required/head.php");
         <?php
         require_once (APP_DIR . "/src/required/functions.php");
         $conn = connection();
-        $AutatutakoTaldea = (isset ($_GET["selectTaldea"])) ? $_GET["selectTaldea"] : "Ajax";
+        $AutatutakoTaldea = (isset($_GET["selectTaldea"])) ? $_GET["selectTaldea"] : "Ajax";
         $query = "SELECT * FROM erronka3.jokalariak WHERE taldea='$AutatutakoTaldea';";
 
         $result = $conn->query($query);

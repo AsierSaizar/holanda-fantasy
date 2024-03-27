@@ -232,14 +232,17 @@ $(document).ready(function () {
 
   $(".containerJokalariakOsoa").show();
   $(".containerDiruaOsoa").hide();
+  $(".diruaAgertzeko2").hide();
 
   $("#Dirua").click(function () {
     $(".containerJokalariakOsoa").hide();
     $(".containerDiruaOsoa").show();
+    $(".diruaAgertzeko2").show();
   });
   $("#Jokalariak").click(function () {
     $(".containerJokalariakOsoa").show();
     $(".containerDiruaOsoa").hide();
+    $(".diruaAgertzeko2").hide();
   });
   //JokalariakDiruaSwith ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -279,5 +282,37 @@ $(document).ready(function () {
   });
   
   //Jokalaria erosi ////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  //Sobrea erosi /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////
+
+  $(".sobreErosiBtn").click(function () {
+    var botoianId = $(this).attr('id');
+    
+    var idZenbakia = botoianId.substring('sobreErosiBtn'.length);
+
+    $.ajax({
+      type: "POST",
+      url: "../../required/ajaxDeiak.php",
+      data: {
+        action: "sobreaErosi",
+        idZenbakia: idZenbakia,
+
+      },
+      success: function (response) {
+        console.log(response);
+      },
+    }).done(function (data) {
+      alert(data);
+      location.reload();
+    });
+    
+    
+    
+  });
+  
+  //Sobrea erosi ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 });

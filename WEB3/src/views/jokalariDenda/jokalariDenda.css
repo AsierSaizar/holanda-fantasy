@@ -37,6 +37,18 @@ body {
     background-color: orange;
 
 }
+.diruaAgertzeko2 {
+    display: grid;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    border: 1px solid;
+    border-radius: 20px;
+    background-color: orange;
+    padding-left: 20px;
+
+}
+
 
 .containerJokalariak {
     margin-left: 20px;
