@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <div class="container">
 
             <!-- SIDE BARRANTZAT DA HAUUU //////////////////-->

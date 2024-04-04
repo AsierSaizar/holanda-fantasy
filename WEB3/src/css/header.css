@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-header {
+.header {
   background-color: orange;
   padding: 20px 0;
 }

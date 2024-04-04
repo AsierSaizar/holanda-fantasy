@@ -247,16 +247,13 @@ $(document).ready(function () {
   //JokalariakDiruaSwith ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  
-  
-  
   //Jokalaria erosi /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
 
-  $(".saskiaBotoia").click(function () {
-    var botoianId = $(this).attr('id');
-    
-    var idZenbakia = botoianId.substring('saskiraGehitu'.length);
+  $(".erosiJokalaria").click(function () {
+    var botoianId = $(this).attr("id");
+
+    var idZenbakia = botoianId.substring("erosiJokalaria".length);
 
     $.ajax({
       type: "POST",
@@ -264,34 +261,28 @@ $(document).ready(function () {
       data: {
         action: "JokalariaErosi",
         idZenbakia: idZenbakia,
-
       },
       success: function (response) {
         console.log(response);
       },
     }).done(function (data) {
       alert(data);
-      if (data=="Erregistroa zuzen egin da!"){
+      if (data == "Erregistroa zuzen egin da!") {
         location.reload();
-
       }
     });
-    
-    
-    
   });
-  
+
   //Jokalaria erosi ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
   //Sobrea erosi /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
 
   $(".sobreErosiBtn").click(function () {
-    var botoianId = $(this).attr('id');
-    
-    var idZenbakia = botoianId.substring('sobreErosiBtn'.length);
+    var botoianId = $(this).attr("id");
+
+    var idZenbakia = botoianId.substring("sobreErosiBtn".length);
 
     $.ajax({
       type: "POST",
@@ -299,7 +290,6 @@ $(document).ready(function () {
       data: {
         action: "sobreaErosi",
         idZenbakia: idZenbakia,
-
       },
       success: function (response) {
         console.log(response);
@@ -308,11 +298,36 @@ $(document).ready(function () {
       alert(data);
       location.reload();
     });
-    
-    
-    
   });
-  
+
   //Sobrea erosi ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+  //PLANTILLAA//////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////
+  $(".plantillaContainer").show();
+  $(".jokokoaContainer").hide();
+
+
+  $(".JokokoaErakutsi").click(function () {
+    $(".plantillaContainer").hide();
+    $(".jokokoaContainer").show();
+  });
+  $(".PlantillaErakutsi").click(function () {
+    $(".plantillaContainer").show();
+    $(".jokokoaContainer").hide();
+  });
+
+
+
+
+
+
+
+
+
+  //PLANTILLAA ////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////
 });

@@ -137,3 +137,17 @@ body {
     color: rgb(255, 255, 255);
     padding: 5px;
   }
+  .erosiJokalaria{
+    background-color: rgb(249, 249, 249);
+    border: 3px solid;
+    border-radius: 20px;
+    border-color: orange;
+    margin: 1em;
+    padding: 7px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }
+  .erosiJokalaria:hover{
+    background-color: orange;
+    
+  }

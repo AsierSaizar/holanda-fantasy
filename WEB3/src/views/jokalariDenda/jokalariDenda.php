@@ -42,7 +42,7 @@ require_once ("../../required/head.php");
     <span>
         <center>
             <button class="search-buttonFiltro" id="Dirua">
-                Dirua
+                Sobreak
             </button>
         </center>
 
@@ -137,8 +137,7 @@ require_once ("../../required/head.php");
                         </div>
                     </b>
 
-
-                    <button id="saskiraGehitu<?= $row["id"] ?>" class="saskiaBotoia addToSaskia">
+                    <button id="erosiJokalaria<?= $row["id"] ?>" class="erosiJokalaria">
                         Fitxatu jokalaria
                     </button>
 
