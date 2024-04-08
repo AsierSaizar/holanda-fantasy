@@ -11,69 +11,13 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
     $ezizena = $_SESSION["LogIn"];
     ?>
     <div class="plantillaContainerOsoa">
-    <div class="jokokoaContainer">
-        <?php
-        require_once (APP_DIR . "src/required/functions.php");
-
-        $conn = connection();
-
-
-        $query = "SELECT *
-        FROM jokalariak
-        WHERE id IN (
-            SELECT idJokalaria
-            FROM erabiltzaileenjokalariak
-            WHERE idErabiltzaile IN (
-                SELECT id
-                FROM weberabiltzaileak
-                WHERE ezizena = '$ezizena'
-            ) AND egoera='jokoan'
-        );";
-
-        $result = $conn->query($query);
-        ?>
-        <table class="tabla">
-
-
+        <div class="jokokoaContainer">
             <?php
-            while ($row = $result->fetch_assoc()) {
-                ?>
-                <tr>
-                    <td>
-                        <?= $row['izenAbizen'] ?>
-                    </td>
-                    <td>
-                        <?= $row['posizioa'] ?>
-                    </td>
-                    <td>
-                        <?= $row['puntuazioa'] ?>
-                    </td>
-                    <td>
-                        <?= $row['taldea'] ?>
-                    <td>
-                        <?= $row['herrialdea'] ?>
-                    </td>
-                    <td>
-                        <button class="plantilaraEmanBtn">Plantilara eraman</button>
-                    </td>
-                    </td>
-                </tr>
+            require_once (APP_DIR . "src/required/functions.php");
 
+            $conn = connection();
 
-                <?php
-            }
-            ?>
-
-        </table>
-
-
-    </div>
-    <div class="plantillaContainer">
-        <?php
-
-        $conn = connection();
-
-        $query = "SELECT *
+            $query = "SELECT AVG(puntuazioa) AS media_puntuacion
             FROM jokalariak
             WHERE id IN (
                 SELECT idJokalaria
@@ -82,54 +26,139 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                     SELECT id
                     FROM weberabiltzaileak
                     WHERE ezizena = '$ezizena'
-                ) AND egoera='plantilan'
+                ) AND egoera='jokoan'
             );";
 
-        $result = $conn->query($query);
-        ?>
-        <div class="plantillaContainerbarrukoa">
+            $result = $conn->query($query);
+            $row = $result->fetch_assoc();
 
+            $puntuazioBatazbestekoa = $row['media_puntuacion'];
+            
+            ?>
+            
+            <br>
+            <div class="mediaEtaPartida">
+                <h1>Zure taldearen puntuazio batazbestekoa:<?= $puntuazioBatazbestekoa ?></h1>
+            </div><br>
             <?php
-            while ($row = $result->fetch_assoc()) {
-                ?>
 
-                <div class="jokalariBakoitzaPlantilan <?= $row['posizioa'] ?>">
+            $conn = connection();
 
-                    <div>
-                        <?= $row['izenAbizen'] ?>
-                    </div>
 
-                    <div>
-                        <?= $row['posizioa'] ?>
-                    </div>
+            $query = "SELECT *
+                FROM jokalariak
+                WHERE id IN (
+                    SELECT idJokalaria
+                    FROM erabiltzaileenjokalariak
+                    WHERE idErabiltzaile IN (
+                        SELECT id
+                        FROM weberabiltzaileak
+                        WHERE ezizena = '$ezizena'
+                    ) AND egoera='jokoan'
+                );";
 
-                    <div>
-                        <?= $row['puntuazioa'] ?>
-                    </div>
-                    <div>
-                        <?= $row['taldea'] ?>
-                    </div>
-                    <div>
-                        <?= $row['herrialdea'] ?>
-                    </div>
-
-                    <div>
-                        <button class="jokoraEmanBtn">Jokora eraman</button>
-                    </div>
-
-                </div>
+            $result = $conn->query($query);
+            ?>
+            <table class="tabla">
 
 
                 <?php
-            }
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <td>
+                            <?= $row['izenAbizen'] ?>
+                        </td>
+                        <td>
+                            <?= $row['posizioa'] ?>
+                        </td>
+                        <td>
+                            <?= $row['puntuazioa'] ?>
+                        </td>
+                        <td>
+                            <?= $row['taldea'] ?>
+                        <td>
+                            <?= $row['herrialdea'] ?>
+                        </td>
+                        <td>
+                            <button id="<?= $row['id'] ?>" class="plantilaraEmanBtn">Plantilara eraman</button>
+                        </td>
+                        </td>
+                    </tr>
+
+
+                    <?php
+                }
+                ?>
+
+            </table>
+
+
+        </div>
+        <div class="plantillaContainer">
+            <?php
+
+            $conn = connection();
+
+            $query = "SELECT *
+            FROM jokalariak
+            WHERE id IN (
+                SELECT idJokalaria
+                FROM erabiltzaileenjokalariak
+                WHERE idErabiltzaile IN (
+                    SELECT id  
+                    FROM weberabiltzaileak
+                    WHERE ezizena = '$ezizena'
+                ) AND egoera='plantilan'
+            );";
+
+            $result = $conn->query($query);
             ?>
+            <div class="plantillaContainerbarrukoa">
+
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <center>
+                        <div class="jokalariBakoitzaPlantilan <?= $row['posizioa'] ?>">
+
+                            <div>
+                                <?= $row['izenAbizen'] ?>
+                            </div>
+
+                            <div>
+                                <?= $row['posizioa'] ?>
+                            </div>
+
+                            <div>
+                                <?= $row['puntuazioa'] ?>
+                            </div>
+                            <div>
+                                <?= $row['taldea'] ?>
+                            </div>
+                            <div>
+                                <?= $row['herrialdea'] ?>
+                            </div>
+
+                            <div>
+                                <button id="<?= $row['id'] ?>" class="jokoraEmanBtn">Jokora eraman</button>
+                            </div>
+
+                        </div>
+                    </center>
+
+                    <?php
+                }
+                ?>
+            </div>
         </div>
     </div>
-</div>
     <?php
 } else {
     ?>
-    <center><h1>Log in to see your plantilini</h1></center>
+    <center>
+        <h1>Log in to see your plantilini</h1>
+    </center>
     <?php
 }
 

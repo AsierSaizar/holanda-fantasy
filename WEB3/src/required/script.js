@@ -307,8 +307,8 @@ $(document).ready(function () {
 
   //PLANTILLAA//////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////
-  $(".plantillaContainer").show();
-  $(".jokokoaContainer").hide();
+  $(".plantillaContainer").hide();
+  $(".jokokoaContainer").show();
 
 
   $(".JokokoaErakutsi").click(function () {
@@ -321,13 +321,62 @@ $(document).ready(function () {
   });
 
 
-
-
-
-
-
-
-
   //PLANTILLAA ////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+  
+  //JOKALARIAK LEKUZ MOITZEKO//////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////
+  
+
+
+  $(".jokoraEmanBtn").click(function () {
+
+    var botoianId = $(this).attr("id");
+    $.ajax({
+      type: "POST",
+      url: "../../required/ajaxDeiak.php",
+      data: {
+        action: "jokoraEman",
+        botoianId: botoianId,
+      },
+      success: function (response) {
+        console.log(response);
+      },
+    }).done(function (data) {
+      if(!(data=="")){
+        alert(data);
+      }
+      
+      location.reload();
+    });
+  });
+
+
+
+  $(".plantilaraEmanBtn").click(function () {
+
+    var botoianId = $(this).attr("id");
+
+    $.ajax({
+      type: "POST",
+      url: "../../required/ajaxDeiak.php",
+      data: {
+        action: "plantilaraEman",
+        botoianId: botoianId,
+      },
+      success: function (response) {
+        console.log(response);
+      },
+    }).done(function (data) {
+      if(!(data=="")){
+        alert(data);
+      }
+      
+      location.reload();
+    });
+  });
+
+
+  //JOKALARIAK LEKUZ MOITZEKO ////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////
 });

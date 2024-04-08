@@ -283,6 +283,61 @@ if (isset ($_POST["action"])) {
 
             break;
         }
+        case "jokoraEman": {
+            $idJokalaria = $_POST["botoianId"];
+
+            $ezizena = $_SESSION["LogIn"];
+            require_once ("functions.php");
+
+            $conn = connection();
+
+            $sql = "UPDATE erabiltzaileenjokalariak
+            SET egoera = 'jokoan'
+            WHERE idErabiltzaile = (
+                SELECT id
+                FROM weberabiltzaileak
+                WHERE ezizena = '$ezizena'
+            ) AND idJokalaria = $idJokalaria;";
+
+            try {
+                $stmt = $conn->prepare($sql);
+                $success = $stmt->execute();
+                if (!$success) {
+                    echo "Errorea datuak datu-basean sartzerakoan";
+                }
+            } catch (Exception $ex) {
+                echo 'Errore bat gertatu da saiatu berandugo berriro ';
+            }
+
+            break;
+        }
+        case "plantilaraEman": {
+            $idJokalaria = $_POST["botoianId"];
+
+            $ezizena = $_SESSION["LogIn"];
+            require_once ("functions.php");
+
+            $conn = connection();
+
+            $sql = "UPDATE erabiltzaileenjokalariak
+            SET egoera = 'plantilan'
+            WHERE idErabiltzaile = (
+                SELECT id
+                FROM weberabiltzaileak
+                WHERE ezizena = '$ezizena'
+            ) AND idJokalaria = $idJokalaria;";
+
+            try {
+                $stmt = $conn->prepare($sql);
+                $success = $stmt->execute();
+                if (!$success) {
+                    echo "Errorea datuak datu-basean sartzerakoan";
+                }
+            } catch (Exception $ex) {
+                echo 'Errore bat gertatu da saiatu berandugo berriro ';
+            }
+            break;
+        }
     }
 } else {
     echo "Error: Invalid action.";

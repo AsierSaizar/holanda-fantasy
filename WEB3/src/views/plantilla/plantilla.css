@@ -9,7 +9,7 @@
     background-color: orange;
 }
 .jokalariBakoitzaPlantilan{
-    height: 180px;
+    height: 190px;
     width: auto;
     border-radius: 5px;
     margin: 20px;
@@ -34,4 +34,10 @@
 .plantillaContainerbarrukoa{
     display: grid;
     grid-template-columns: repeat(2,50%);
+}
+
+.jokoraEmanBtn, .plantilaraEmanBtn{
+    border-radius: 5px;
+    background-color: orange;
+    border-color: orange;
 }
