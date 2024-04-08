@@ -230,20 +230,33 @@ $(document).ready(function () {
   //JokalariakDiruaSwith /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
 
-  $(".containerJokalariakOsoa").show();
-  $(".containerDiruaOsoa").hide();
-  $(".diruaAgertzeko2").hide();
+  var visibleSection = localStorage.getItem("visibleSection1");
+
+  if (visibleSection === "jokalariak") {
+    $(".containerJokalariakOsoa").show();
+    $(".containerDiruaOsoa").hide();
+    $(".diruaAgertzeko2").hide();
+  } else {
+    $(".containerJokalariakOsoa").hide();
+    $(".containerDiruaOsoa").show();
+    $(".diruaAgertzeko2").show();
+  }
+
 
   $("#Dirua").click(function () {
     $(".containerJokalariakOsoa").hide();
     $(".containerDiruaOsoa").show();
     $(".diruaAgertzeko2").show();
+    localStorage.setItem("visibleSection1", "sobreak");
   });
   $("#Jokalariak").click(function () {
     $(".containerJokalariakOsoa").show();
     $(".containerDiruaOsoa").hide();
     $(".diruaAgertzeko2").hide();
+    localStorage.setItem("visibleSection1", "jokalariak");
   });
+
+  
   //JokalariakDiruaSwith ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -305,16 +318,26 @@ $(document).ready(function () {
 
   //PLANTILLAA//////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////
-  $(".plantillaContainer").hide();
-  $(".jokokoaContainer").show();
+  var visibleSection = localStorage.getItem("visibleSection");
+
+  if (visibleSection === "plantilla") {
+    $(".plantillaContainer").show();
+    $(".jokokoaContainer").hide();
+  } else {
+    $(".plantillaContainer").hide();
+    $(".jokokoaContainer").show();
+  }
 
   $(".JokokoaErakutsi").click(function () {
     $(".plantillaContainer").hide();
     $(".jokokoaContainer").show();
+    localStorage.setItem("visibleSection", "jokokoa");
   });
+
   $(".PlantillaErakutsi").click(function () {
     $(".plantillaContainer").show();
     $(".jokokoaContainer").hide();
+    localStorage.setItem("visibleSection", "plantilla");
   });
 
   //PLANTILLAA ////////////////////////////////////////////////////////////////

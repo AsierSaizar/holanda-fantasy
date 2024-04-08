@@ -12,7 +12,7 @@ if (isset ($_POST["action"])) {
 
             $conn = connection();
 
-            $sql = "INSERT INTO weberabiltzaileak (ezizena, emaila, pasahitza, dirua, baneado) VALUES ('$ezizena', '$emaila', '$pasahitza', 10000, 0)";
+            $sql = "INSERT INTO weberabiltzaileak (ezizena, emaila, pasahitza, dirua, baneado) VALUES ('$ezizena', '$emaila', '$pasahitza', 20000, 0)";
 
             try {
                 $stmt = $conn->prepare($sql);
