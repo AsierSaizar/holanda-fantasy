@@ -303,13 +303,10 @@ $(document).ready(function () {
   //Sobrea erosi ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
   //PLANTILLAA//////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////
   $(".plantillaContainer").hide();
   $(".jokokoaContainer").show();
-
 
   $(".JokokoaErakutsi").click(function () {
     $(".plantillaContainer").hide();
@@ -320,41 +317,39 @@ $(document).ready(function () {
     $(".jokokoaContainer").hide();
   });
 
-
   //PLANTILLAA ////////////////////////////////////////////////////////////////
-  ///////////////////////////////////////////////////////////////////////////////////////////// 
-  
+  /////////////////////////////////////////////////////////////////////////////////////////////
+
   //JOKALARIAK LEKUZ MOITZEKO//////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////
-  
-
 
   $(".jokoraEmanBtn").click(function () {
+    var jokalariKop = $("#jokalariKop").val();
+    if (jokalariKop >= 11) {
+      alert("Jokalari kopurua beteta dago");
+    } else {
+      var botoianId = $(this).attr("id");
+      $.ajax({
+        type: "POST",
+        url: "../../required/ajaxDeiak.php",
+        data: {
+          action: "jokoraEman",
+          botoianId: botoianId,
+        },
+        success: function (response) {
+          console.log(response);
+        },
+      }).done(function (data) {
+        if (!(data == "")) {
+          alert(data);
+        }
 
-    var botoianId = $(this).attr("id");
-    $.ajax({
-      type: "POST",
-      url: "../../required/ajaxDeiak.php",
-      data: {
-        action: "jokoraEman",
-        botoianId: botoianId,
-      },
-      success: function (response) {
-        console.log(response);
-      },
-    }).done(function (data) {
-      if(!(data=="")){
-        alert(data);
-      }
-      
-      location.reload();
-    });
+        location.reload();
+      });
+    }
   });
 
-
-
   $(".plantilaraEmanBtn").click(function () {
-
     var botoianId = $(this).attr("id");
 
     $.ajax({
@@ -368,14 +363,13 @@ $(document).ready(function () {
         console.log(response);
       },
     }).done(function (data) {
-      if(!(data=="")){
+      if (!(data == "")) {
         alert(data);
       }
-      
+
       location.reload();
     });
   });
-
 
   //JOKALARIAK LEKUZ MOITZEKO ////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////

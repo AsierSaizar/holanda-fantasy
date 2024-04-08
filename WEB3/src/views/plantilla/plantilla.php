@@ -9,7 +9,7 @@ require_once ("../../required/head.php");
 <?php
 if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
     $ezizena = $_SESSION["LogIn"];
-    ?>
+    ?><center>
     <div class="plantillaContainerOsoa">
         <div class="jokokoaContainer">
             <?php
@@ -17,6 +17,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
 
             $conn = connection();
 
+            //JOKALARIEN MEDIA
             $query = "SELECT AVG(puntuazioa) AS media_puntuacion
             FROM jokalariak
             WHERE id IN (
@@ -33,16 +34,48 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
             $row = $result->fetch_assoc();
 
             $puntuazioBatazbestekoa = $row['media_puntuacion'];
-            
+
+            //JOKALARI KOPURUA
+            $query = "SELECT *
+            FROM jokalariak
+            WHERE id IN (
+                SELECT idJokalaria
+                FROM erabiltzaileenjokalariak
+                WHERE idErabiltzaile IN (
+                    SELECT id
+                    FROM weberabiltzaileak
+                    WHERE ezizena = '$ezizena'
+                ) AND egoera='jokoan'
+            );";
+
+            $result = $conn->query($query);
+
+            // Verifica si la consulta se ejecutó correctamente
+            if ($result) {
+                // Obtén el número de filas devueltas por la consulta
+                $jokalariKop = $result->num_rows;
+            } else {
+                // Manejo de error si la consulta falla
+                echo "Error al ejecutar la consulta: " . $conn->error;
+            }
+
+
             ?>
-            
+
             <br>
             <div class="mediaEtaPartida">
-                <h1>Zure taldearen puntuazio batazbestekoa:<?= $puntuazioBatazbestekoa ?></h1>
+                <h1>Taldearen media:
+                    <?= $puntuazioBatazbestekoa ?>
+                </h1>
             </div><br>
+            <div class="jokalariKop">
+                <h1>Jokalari kopurua:
+                <?= $jokalariKop ?>/11
+                </h1>
+            </div><br>
+            <input id="jokalariKop" type="hidden" value="<?= $jokalariKop ?>">
             <?php
 
-            $conn = connection();
 
 
             $query = "SELECT *
@@ -98,7 +131,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
         <div class="plantillaContainer">
             <?php
 
-            $conn = connection();
+
 
             $query = "SELECT *
             FROM jokalariak
@@ -152,7 +185,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                 ?>
             </div>
         </div>
-    </div>
+    </div></center>
     <?php
 } else {
     ?>
