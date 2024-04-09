@@ -323,22 +323,39 @@ $(document).ready(function () {
   if (visibleSection === "plantilla") {
     $(".plantillaContainer").show();
     $(".jokokoaContainer").hide();
+    
+    resetBorders();
+    $(".PlantillaErakutsi").addClass("brilliant-border");
   } else {
     $(".plantillaContainer").hide();
     $(".jokokoaContainer").show();
+    
+    resetBorders();
+    $(".JokokoaErakutsi").addClass("brilliant-border");
   }
-
+  
+  function resetBorders() {
+    $(".JokokoaErakutsi, .PlantillaErakutsi").removeClass("brilliant-border");
+  }
+  
   $(".JokokoaErakutsi").click(function () {
     $(".plantillaContainer").hide();
     $(".jokokoaContainer").show();
     localStorage.setItem("visibleSection", "jokokoa");
+    
+    resetBorders();
+    $(this).addClass("brilliant-border");
   });
-
+  
   $(".PlantillaErakutsi").click(function () {
     $(".plantillaContainer").show();
     $(".jokokoaContainer").hide();
     localStorage.setItem("visibleSection", "plantilla");
+    
+    resetBorders();
+    $(this).addClass("brilliant-border");
   });
+  
 
   //PLANTILLAA ////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////

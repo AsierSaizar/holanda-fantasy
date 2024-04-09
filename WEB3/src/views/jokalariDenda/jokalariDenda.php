@@ -49,8 +49,8 @@ require_once ("../../required/head.php");
     </span>
 </div>
 <div class="diruaAgertzeko diruaAgertzeko2 probaBack1">
-        <span>Zure dirua:
-            <?= $erabiltzailearenDirua ?>€
+        <span><center>Zure dirua:
+            <?= $erabiltzailearenDirua ?>€</center>
         </span>
     </div>
 <div class="containerDiruaOsoa">

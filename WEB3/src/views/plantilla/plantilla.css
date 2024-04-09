@@ -8,8 +8,17 @@
     background-color: #f57c00;
     text-align: center;
     padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-weight: bold;
+}
+
+.h1textua {
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
 .jokalariBakoitzaPlantilan {
@@ -21,7 +30,7 @@
     border-radius: 5px;
     margin: 20px;
     padding: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     transition: transform 0.3s ease;
 }
@@ -30,7 +39,10 @@
     transform: translateY(-5px);
 }
 
-.Defensa, .Medio, .Delantero, .Portero {
+.Defensa,
+.Medio,
+.Delantero,
+.Portero {
     color: white;
     padding: 5px;
     border-radius: 3px;
@@ -38,10 +50,21 @@
     text-align: center;
 }
 
-.Defensa { background-color: #ffcf32; }
-.Medio { background-color: #002fff; }
-.Delantero { background-color: #ae00ff; }
-.Portero { background-color: #09ff00; }
+.Defensa {
+    background-color: #ffcf3282;
+}
+
+.Medio {
+    background-color: #002fff8f;
+}
+
+.Delantero {
+    background-color: #ae00ff89;
+}
+
+.Portero {
+    background-color: #09ff008b;
+}
 
 .plantillaContainerbarrukoa {
     display: grid;
@@ -49,8 +72,11 @@
     gap: 20px;
     padding: 20px;
 }
-
-.jokoraEmanBtn, .plantilaraEmanBtn {
+.tituloakPlantilla{
+    background-color:#f57b00cf;
+}
+.jokoraEmanBtn,
+.plantilaraEmanBtn {
     border-radius: 5px;
     background-color: #f57c00;
     border: none;
@@ -60,8 +86,14 @@
     transition: background-color 0.3s ease;
 }
 
-.jokoraEmanBtn:hover, .plantilaraEmanBtn:hover {
+.jokoraEmanBtn:hover,
+.plantilaraEmanBtn:hover {
     background-color: #e65100;
+}
+
+.brilliant-border {
+    border: 3px solid;
+    border-color: #000000;
 }
 
 .jokalariakContainer {
@@ -75,14 +107,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid white;
     border-radius: 5px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 200px;
-    background-color: #f9f9f9;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    color: white;
 }
 
-.jokalariBakoitza > div {
+.jokalariBakoitza>div {
     margin: 5px 0;
 }
 
@@ -104,5 +139,32 @@
 
     .jokalariBakoitza {
         width: auto;
+    }
+}
+
+body {
+    background-image: url('JokalarienArgazkiaHolanda.webp');
+    /* Actualiza con la ruta correcta de la imagen */
+    background-size: cover;
+    /* Asegura que la imagen cubra todo el espacio disponible */
+    background-position: center;
+    /* Centra la imagen en la página */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    background-attachment: fixed;
+    /* La imagen de fondo es fija en relación con la ventana de visualización */
+}
+
+@media (max-width: 600px) {
+    body {
+        background-image: url('JokalarienArgazkiaHolanda.webp');
+        /* Puedes usar la misma imagen o una diferente para móviles */
+        background-size: cover;
+        /* Asegura que la imagen cubra todo el espacio disponible */
+        background-position: center;
+        /* Centra la imagen en la página */
+        background-repeat: no-repeat;
+        /* Evita que la imagen se repita */
+        /* No usamos 'background-attachment: fixed;' en móviles para prevenir problemas de rendimiento */
     }
 }

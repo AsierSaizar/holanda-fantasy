@@ -62,12 +62,12 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {?>
         <center>
         <br>
         <div class="mediaEtaPartida">
-            <h1>Taldearen media:
+            <h1 class="h1textua">Taldearen media:
                 <?= $puntuazioBatazbestekoa ?>
             </h1>
         </div><br>
         <div class="jokalariKop">
-            <h1>Jokalari kopurua:
+            <h1 class="h1textua">Jokalari kopurua:
                 <?= $jokalariKop ?>/11
             </h1>
         </div><br>
@@ -87,7 +87,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {?>
                     FROM weberabiltzaileak
                     WHERE ezizena = '$ezizena'
                 ) AND egoera='jokoan'
-            );";
+            ) ORDER BY puntuazioa DESC;";
 
                 $result = $conn->query($query);
                 ?>
@@ -136,7 +136,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {?>
                     FROM weberabiltzaileak
                     WHERE ezizena = '$ezizena'
                 ) AND egoera='plantilan'
-            );";
+            ) ORDER BY puntuazioa DESC;";
 
                 $result = $conn->query($query);
                 ?>

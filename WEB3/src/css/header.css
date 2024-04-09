@@ -67,7 +67,7 @@ nav ul li a:hover {
 }
 
 .btn-primary:hover {
-  background-color: rgb(255, 210, 127);
+  background-color: orange;
   border: 2px solid white;
 }
 
