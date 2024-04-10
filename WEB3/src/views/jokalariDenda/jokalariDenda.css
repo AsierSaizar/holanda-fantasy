@@ -9,20 +9,29 @@
 }
 
 body {
-    background-image: url("EstadioHolanda.jpg");
+    background-image: url('EstadioHolanda.jpg');
+    /* Actualiza con la ruta correcta de la imagen */
     background-size: cover;
+    /* Asegura que la imagen cubra todo el espacio disponible */
+    background-position: center;
+    /* Centra la imagen en la página */
     background-repeat: no-repeat;
-    background-position: 0px -80px;
-
-
+    /* Evita que la imagen se repita */
+    background-attachment: fixed;
+    /* La imagen de fondo es fija en relación con la ventana de visualización */
 }
 
-@media only screen and (max-width: 1233px) {
+@media (max-width: 600px) {
     body {
-        background-image: url("EstadioHolanda.jpg");
-        background-size: auto;
-        background-repeat: initial;
-        background-position: 0px 0px;
+        background-image: url('EstadioHolanda.jpg');
+        /* Puedes usar la misma imagen o una diferente para móviles */
+        background-size: cover;
+        /* Asegura que la imagen cubra todo el espacio disponible */
+        background-position: center;
+        /* Centra la imagen en la página */
+        background-repeat: no-repeat;
+        /* Evita que la imagen se repita */
+        /* No usamos 'background-attachment: fixed;' en móviles para prevenir problemas de rendimiento */
     }
 }
 
@@ -74,7 +83,7 @@ body {
 }
 
 .jokalariBakoitza {
-    background-color: rgb(249, 249, 249);
+    background-color: rgba(249, 249, 249, 0.588);
     border: 3px solid;
     border-radius: 20px;
     border-color: #fe9c00;

@@ -21,6 +21,35 @@
         1px 1px 0 #000;
 }
 
+
+
+.partidaJolastu {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 260px;
+    padding-top: 5px;
+    background-color: #333333b1;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partidaJolastuDesblok {
+    background-color: orange;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+
+.partidaJolastu .h2textua  {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+}
+
+.partidaJolastuDesblok .h2textua  {
+    color: black;
+}
+
+
 .jokalariBakoitzaPlantilan {
     display: flex;
     flex-direction: column;
@@ -65,7 +94,13 @@
 .Portero {
     background-color: #09ff008b;
 }
-
+.taldekoInfoa{
+    width: 33%;
+    background-color: #ae69448c;
+    border-radius: 10px;
+    border: 2px solid white;
+    padding-top: 5px;
+}
 .plantillaContainerbarrukoa {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -140,6 +175,9 @@
     .jokalariBakoitza {
         width: auto;
     }
+    .taldekoInfoa{
+        width: 80%;
+    }
 }
 
 body {
@@ -168,3 +206,4 @@ body {
         /* No usamos 'background-attachment: fixed;' en móviles para prevenir problemas de rendimiento */
     }
 }
+
