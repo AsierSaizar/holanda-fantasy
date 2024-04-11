@@ -33,7 +33,7 @@ CREATE TABLE `weberabiltzaileak` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `ezizena_UNIQUE` (`ezizena`),
   UNIQUE KEY `emaila_UNIQUE` (`emaila`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,7 @@ CREATE TABLE `weberabiltzaileak` (
 
 LOCK TABLES `weberabiltzaileak` WRITE;
 /*!40000 ALTER TABLE `weberabiltzaileak` DISABLE KEYS */;
+INSERT INTO `weberabiltzaileak` VALUES (34,'haimardo','haimar@gmail.com','Haimar69',200,0),(35,'Asier','asier.saizar.diaz@gmail.com','7uhr4626551D',999952599,0),(36,'pedro','pedro@gmail.com','Pedro123',10000,0),(37,'HugoPepino','aloberahugo@gmail.com','Hugo2009',6000,0);
 /*!40000 ALTER TABLE `weberabiltzaileak` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-28 13:48:45
+-- Dump completed on 2024-04-11 12:58:23

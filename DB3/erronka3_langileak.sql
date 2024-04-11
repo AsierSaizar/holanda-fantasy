@@ -24,12 +24,13 @@ DROP TABLE IF EXISTS `langileak`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `langileak` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `izena` varchar(255) DEFAULT NULL,
-  `abizenak` varchar(255) DEFAULT NULL,
-  `lanPostua` varchar(255) DEFAULT NULL,
+  `nan` char(9) NOT NULL,
+  `pasahitza` varchar(255) NOT NULL,
+  `izena` varchar(255) NOT NULL,
+  `abizenak` varchar(255) NOT NULL,
+  `lanPostua` varchar(255) NOT NULL,
   `proiektua` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-28 13:48:45
+-- Dump completed on 2024-04-11 12:58:23
