@@ -345,58 +345,64 @@ if (isset($_POST["action"])) {
             $segundaMitad = $_POST["segundaMitad"];
 
             $taldearenMedia = $_POST["taldearenMedia"];
-
-            $ordenagailuarenPuntuazioRand = rand($primeraMitad, $segundaMitad);
-            require_once ("functions.php");
-
-            $conn = connection();
-            if ($taldearenMedia > $ordenagailuarenPuntuazioRand) {
-                $irabazlearenGolak = rand(2,5);
-                $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
-
-
-                echo "Partidoa irabazi duzu $irabazlearenGolak-$galtzailearenGolak\n";
-
-                $ezizena = $_SESSION["LogIn"];
-                $sql = "UPDATE weberabiltzaileak
-                SET dirua = dirua+$apostua
-                WHERE ezizena= '$ezizena';";
-                $irabazi = true;
-            } elseif ($taldearenMedia < $ordenagailuarenPuntuazioRand) {
-                $irabazlearenGolak = rand(2,5);
-                $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
-
-                echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
-
-                $ezizena = $_SESSION["LogIn"];
-                $sql = "UPDATE weberabiltzaileak
-                SET dirua = dirua-$apostua
-                WHERE ezizena= '$ezizena';";
-                $irabazi = false;
-            } else {
-                $irabazlearenGolak = rand(2,5);
-                $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
-
-                echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
-
-                $ezizena = $_SESSION["LogIn"];
-                $sql = "UPDATE weberabiltzaileak
-                SET dirua = dirua-$apostua
-                WHERE ezizena= '$ezizena';";
-                $irabazi = false;
-            }
-
-            $stmt = $conn->prepare($sql);
-            $success = $stmt->execute();
-            if ($success) {
-                if ($irabazi) {
-                    echo $apostua . "€ Irabazi dituzu";
+            $taldearenDirua = $_POST["taldearenDirua"];
+            if($apostua<=$taldearenDirua){
+                $ordenagailuarenPuntuazioRand = rand($primeraMitad, $segundaMitad);
+                require_once ("functions.php");
+    
+                $conn = connection();
+                if ($taldearenMedia > $ordenagailuarenPuntuazioRand) {
+                    $irabazlearenGolak = rand(2,5);
+                    $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
+    
+    
+                    echo "Partidoa irabazi duzu $irabazlearenGolak-$galtzailearenGolak\n";
+    
+                    $ezizena = $_SESSION["LogIn"];
+                    $sql = "UPDATE weberabiltzaileak
+                    SET dirua = dirua+$apostua
+                    WHERE ezizena= '$ezizena';";
+                    $irabazi = true;
+                } elseif ($taldearenMedia < $ordenagailuarenPuntuazioRand) {
+                    $irabazlearenGolak = rand(2,5);
+                    $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
+    
+                    echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
+    
+                    $ezizena = $_SESSION["LogIn"];
+                    $sql = "UPDATE weberabiltzaileak
+                    SET dirua = dirua-$apostua
+                    WHERE ezizena= '$ezizena';";
+                    $irabazi = false;
                 } else {
-                    echo $apostua . "€ Galdu dituzu";
+                    $irabazlearenGolak = rand(2,5);
+                    $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
+    
+                    echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
+    
+                    $ezizena = $_SESSION["LogIn"];
+                    $sql = "UPDATE weberabiltzaileak
+                    SET dirua = dirua-$apostua
+                    WHERE ezizena= '$ezizena';";
+                    $irabazi = false;
                 }
-            } else {
-                echo "Errorea datuak datu-basean sartzerakoan";
+    
+                $stmt = $conn->prepare($sql);
+                $success = $stmt->execute();
+                if ($success) {
+                    if ($irabazi) {
+                        echo $apostua . "€ Irabazi dituzu";
+                    } else {
+                        echo $apostua . "€ Galdu dituzu";
+                    }
+                } else {
+                    echo "Errorea datuak datu-basean sartzerakoan";
+                }
+            }else{
+                echo "Ezdaukazu diru nahikoa";
             }
+
+            
 
             break;
         }

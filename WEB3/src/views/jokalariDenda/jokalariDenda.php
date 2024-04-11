@@ -6,30 +6,30 @@ require_once ("../../required/head.php");
 <link rel="stylesheet" href="<?= HREF_SRC_DIR ?>/views/jokalariDenda/jokalariDenda.css">
 <?php
 
-        if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
-            $ezizena = $_SESSION["LogIn"];
+if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
+    $ezizena = $_SESSION["LogIn"];
 
-            require_once ("../../required/functions.php");
-            //require_once(HREF_SRC_DIR. "/required/functions.php");
-        
-            $conn = connection();
+    require_once ("../../required/functions.php");
+    //require_once(HREF_SRC_DIR. "/required/functions.php");
 
-            $sql = "SELECT * FROM weberabiltzaileak where ezizena = '$ezizena'";
-            $result = $conn->query($sql);
+    $conn = connection();
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $erabiltzailearenDirua = $row["dirua"];
-                }
-            } else {
-                echo "ez dago ezizen horrekin usuariorik.";
-            }
+    $sql = "SELECT * FROM weberabiltzaileak where ezizena = '$ezizena'";
+    $result = $conn->query($sql);
 
-        } else {
-            $erabiltzailearenDirua = "0";
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $erabiltzailearenDirua = $row["dirua"];
         }
+    } else {
+        echo "ez dago ezizen horrekin usuariorik.";
+    }
 
-        ?>
+} else {
+    $erabiltzailearenDirua = "0";
+}
+
+?>
 <div class="containerJokalariakMenu">
     <span>
         <center>
@@ -49,12 +49,14 @@ require_once ("../../required/head.php");
     </span>
 </div>
 <div class="diruaAgertzeko diruaAgertzeko2 probaBack1">
-        <span><center>Zure dirua:
-            <?= $erabiltzailearenDirua ?>€</center>
-        </span>
-    </div>
+    <span>
+        <center>Zure dirua:
+            <?= $erabiltzailearenDirua ?>€
+        </center>
+    </span>
+</div>
 <div class="containerDiruaOsoa">
-    
+
     <div class="sobreDivClass" id="Sobre1">
         <span>Sobre Normal</span><br><br><br><br>
         <button class="sobreErosiBtn" id="sobreErosiBtn1">Erosi</button><br>
@@ -99,7 +101,7 @@ require_once ("../../required/head.php");
             </form>
         </div>
 
-        
+
 
         <div class="diruaAgertzeko probaBack1">
             <span>Zure dirua:
