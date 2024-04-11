@@ -28,9 +28,8 @@ CREATE TABLE `erabiltzaileenjokalariak` (
   `idJokalaria` varchar(255) NOT NULL,
   `egoera` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `idErabiltzaile_UNIQUE` (`idErabiltzaile`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +38,7 @@ CREATE TABLE `erabiltzaileenjokalariak` (
 
 LOCK TABLES `erabiltzaileenjokalariak` WRITE;
 /*!40000 ALTER TABLE `erabiltzaileenjokalariak` DISABLE KEYS */;
+INSERT INTO `erabiltzaileenjokalariak` VALUES (61,35,'1','jokoan'),(62,35,'6','jokoan'),(63,34,'12','jokoan'),(64,34,'17','plantilan'),(65,35,'11','jokoan'),(66,35,'16','jokoan'),(67,35,'21','jokoan'),(68,35,'26','jokoan'),(69,35,'36','jokoan'),(70,35,'31','plantilan'),(71,35,'41','plantilan'),(72,35,'56','jokoan'),(73,35,'2','jokoan'),(74,35,'7','plantilan'),(75,35,'32','plantilan'),(76,35,'59','jokoan'),(77,34,'36','jokoan'),(78,35,'33','plantilan'),(79,35,'10','plantilan'),(80,35,'46','jokoan');
 /*!40000 ALTER TABLE `erabiltzaileenjokalariak` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-28 13:48:45
+-- Dump completed on 2024-04-11 12:58:23
