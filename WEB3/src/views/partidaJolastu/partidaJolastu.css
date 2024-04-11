@@ -1,0 +1,166 @@
+body {
+    background-image: url('holandaEstadioaPartidoaJolasteko.webp');
+    /* Actualiza con la ruta correcta de la imagen */
+    background-size: cover;
+    /* Asegura que la imagen cubra todo el espacio disponible */
+    background-position: center;
+    /* Centra la imagen en la página */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    background-attachment: fixed;
+    /* La imagen de fondo es fija en relación con la ventana de visualización */
+}
+
+@media (max-width: 600px) {
+    body {
+        background-image: url('holandaEstadioaPartidoaJolasteko.webp');
+        /* Puedes usar la misma imagen o una diferente para móviles */
+        background-size: cover;
+        /* Asegura que la imagen cubra todo el espacio disponible */
+        background-position: center;
+        /* Centra la imagen en la página */
+        background-repeat: no-repeat;
+        /* Evita que la imagen se repita */
+        /* No usamos 'background-attachment: fixed;' en móviles para prevenir problemas de rendimiento */
+    }
+}
+.h1{
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.zailtasunMotak{
+    display: grid;
+    grid-gap: 4em;
+    width: 500px;
+    height: auto;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: rgba(145, 145, 145, 0.585);
+    margin-top: 30px;
+    padding: 15px;
+}
+.zailtasunak{
+    
+    width: auto;
+    height: auto;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 20px;
+}
+body {
+    background-image: url('holandaEstadioaPartidoaJolasteko.webp');
+    /* Actualiza con la ruta correcta de la imagen */
+    background-size: cover;
+    /* Asegura que la imagen cubra todo el espacio disponible */
+    background-position: center;
+    /* Centra la imagen en la página */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    background-attachment: fixed;
+    /* La imagen de fondo es fija en relación con la ventana de visualización */
+}
+
+@media (max-width: 600px) {
+    body {
+        background-image: url('holandaEstadioaPartidoaJolasteko.webp');
+        /* Puedes usar la misma imagen o una diferente para móviles */
+        background-size: cover;
+        /* Asegura que la imagen cubra todo el espacio disponible */
+        background-position: center;
+        /* Centra la imagen en la página */
+        background-repeat: no-repeat;
+        /* Evita que la imagen se repita */
+        /* No usamos 'background-attachment: fixed;' en móviles para prevenir problemas de rendimiento */
+    }
+}
+.h1{
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.zailtasunMotak{
+    display: grid;
+    grid-gap: 4em;
+    width: 500px;
+    height: auto;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: rgba(145, 145, 145, 0.585);
+    margin-top: 30px;
+    padding: 15px;
+}
+.zailtasunak{
+    
+    width: auto;
+    height: auto;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 20px;
+}
+body {
+    background-image: url('holandaEstadioaPartidoaJolasteko.webp');
+    /* Actualiza con la ruta correcta de la imagen */
+    background-size: cover;
+    /* Asegura que la imagen cubra todo el espacio disponible */
+    background-position: center;
+    /* Centra la imagen en la página */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    background-attachment: fixed;
+    /* La imagen de fondo es fija en relación con la ventana de visualización */
+}
+
+@media (max-width: 600px) {
+    body {
+        background-image: url('holandaEstadioaPartidoaJolasteko.webp');
+        /* Puedes usar la misma imagen o una diferente para móviles */
+        background-size: cover;
+        /* Asegura que la imagen cubra todo el espacio disponible */
+        background-position: center;
+        /* Centra la imagen en la página */
+        background-repeat: no-repeat;
+        /* Evita que la imagen se repita */
+        /* No usamos 'background-attachment: fixed;' en móviles para prevenir problemas de rendimiento */
+    }
+}
+.h1{
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.zailtasunMotak{
+    display: grid;
+    grid-gap: 2em;
+    width: 500px;
+    height: auto;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: rgba(145, 145, 145, 0.585);
+    margin-top: 50px;
+    padding: 15px;
+}
+.zailtasunak{
+    
+    width: auto;
+    height: auto;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 20px;
+}
+.zailtasunak:hover{
+    
+    border-color: aliceblue;
+}
+.zailtasuna1{
+    background-color: rgba(102, 187, 106, 0.585); /* Un tono de verde claro que sugiere facilidad y accesibilidad */
+}
+.zailtasuna2{
+    background-color: rgba(255, 167, 38, 0.585); /* Un tono de naranja que indica un nivel intermedio de dificultad */
+}
+.zailtasuna3{
+    background-color: rgba(239, 83, 80, 0.585); /* Un tono de rojo que implica dificultad y desafío */
+}

@@ -242,7 +242,6 @@ $(document).ready(function () {
     $(".diruaAgertzeko2").show();
   }
 
-
   $("#Dirua").click(function () {
     $(".containerJokalariakOsoa").hide();
     $(".containerDiruaOsoa").show();
@@ -256,7 +255,6 @@ $(document).ready(function () {
     localStorage.setItem("visibleSection1", "jokalariak");
   });
 
-  
   //JokalariakDiruaSwith ////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -323,21 +321,37 @@ $(document).ready(function () {
   if (visibleSection === "plantilla") {
     $(".plantillaContainer").show();
     $(".jokokoaContainer").hide();
+
+    resetBorders();
+    $(".PlantillaErakutsi").addClass("brilliant-border");
   } else {
     $(".plantillaContainer").hide();
     $(".jokokoaContainer").show();
+
+    resetBorders();
+    $(".JokokoaErakutsi").addClass("brilliant-border");
+  }
+
+  function resetBorders() {
+    $(".JokokoaErakutsi, .PlantillaErakutsi").removeClass("brilliant-border");
   }
 
   $(".JokokoaErakutsi").click(function () {
     $(".plantillaContainer").hide();
     $(".jokokoaContainer").show();
     localStorage.setItem("visibleSection", "jokokoa");
+
+    resetBorders();
+    $(this).addClass("brilliant-border");
   });
 
   $(".PlantillaErakutsi").click(function () {
     $(".plantillaContainer").show();
     $(".jokokoaContainer").hide();
     localStorage.setItem("visibleSection", "plantilla");
+
+    resetBorders();
+    $(this).addClass("brilliant-border");
   });
 
   //PLANTILLAA ////////////////////////////////////////////////////////////////
@@ -395,5 +409,80 @@ $(document).ready(function () {
   });
 
   //JOKALARIAK LEKUZ MOITZEKO ////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////
+
+  //PARTIDA JOLASTERA JOATEKO LOGIKA//////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////
+
+  var jokalariKop = $("#jokalariKop").val();
+  if (jokalariKop == 11) {
+    $(".partidaJolastu").addClass("partidaJolastuDesblok");
+  }
+
+  $(".partidaJolastuDesblok").click(function () {
+    var taldearenMedia = $("#taldearenMedia").val();
+    $.ajax({
+      type: "POST",
+      url: "../../required/ajaxDeiak.php",
+      data: {
+        action: "sessionenSartu",
+        taldearenMedia: taldearenMedia,
+      },
+    }).done(function (data) {
+      
+    });
+
+    window.location.href =
+      "../partidaJolastu/partidaJolastu.php";
+  });
+
+  //PARTIDA JOLASTERA JOATEKO LOGIKA//////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //PARTIDA JOLASTERA JOATEKO LOGIKA//////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////
+
+  $(".zailtasunak").click(function () {
+    var aukeraid = $(this).attr("id");
+    var apostua = 0;
+    switch (aukeraid) {
+      case "7582":
+        var apostua = 500;
+        break;
+      case "8389":
+        var apostua = 1000;
+        break;
+      case "9098":
+        var apostua = 2000;
+        break;
+    }
+    var primeraMitad = aukeraid.substring(0, aukeraid.length / 2);
+    var segundaMitad = aukeraid.substring(aukeraid.length / 2);
+
+    var taldearenMedia = $("#taldearenMedia").val();
+
+    $.ajax({
+      type: "POST",
+      url: "../../required/ajaxDeiak.php",
+      data: {
+        action: "jolastu",
+        apostua: apostua,
+        primeraMitad: primeraMitad,
+        segundaMitad: segundaMitad,
+        taldearenMedia: taldearenMedia,
+      },
+      success: function (response) {
+        console.log(response);
+      },
+    }).done(function (data) {
+      if (!(data == "")) {
+        alert(data);
+      }
+
+      location.reload();
+    });
+  });
+
+  //PARTIDA JOLASTERA JOATEKO LOGIKA ////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////
 });

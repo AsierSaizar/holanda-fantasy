@@ -56,21 +56,28 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {?>
             // Manejo de error si la consulta falla
             echo "Error al ejecutar la consulta: " . $conn->error;
         }
-
-
         ?>
         <center>
         <br>
-        <div class="mediaEtaPartida">
-            <h1>Taldearen media:
-                <?= $puntuazioBatazbestekoa ?>
+        <div class="mediaEtaPartida taldekoInfoa">
+            <h1 class="h1textua"><b>Taldearen media:
+                <?= $puntuazioBatazbestekoa ?></b>
             </h1>
         </div><br>
-        <div class="jokalariKop">
-            <h1>Jokalari kopurua:
-                <?= $jokalariKop ?>/11
+
+        <div class="jokalariKop taldekoInfoa">
+            <h1 class="h1textua"><b>Jokalari kopurua:
+                <?= $jokalariKop ?>/11</b>
             </h1>
         </div><br>
+
+        <button class="partidaJolastu ">
+            <h2 class="h2textua">
+                Partida Jolastu
+            </h2>
+            
+            <input id="taldearenMedia" type="hidden" value="<?= $puntuazioBatazbestekoa ?>">
+        </button><br><br>
 
 
         <div class="plantillaContainerOsoa">
@@ -87,7 +94,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {?>
                     FROM weberabiltzaileak
                     WHERE ezizena = '$ezizena'
                 ) AND egoera='jokoan'
-            );";
+            ) ORDER BY puntuazioa DESC;";
 
                 $result = $conn->query($query);
                 ?>
@@ -136,7 +143,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {?>
                     FROM weberabiltzaileak
                     WHERE ezizena = '$ezizena'
                 ) AND egoera='plantilan'
-            );";
+            ) ORDER BY puntuazioa DESC;";
 
                 $result = $conn->query($query);
                 ?>

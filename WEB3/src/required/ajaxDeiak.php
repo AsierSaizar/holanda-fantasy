@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset ($_POST["action"])) {
+if (isset($_POST["action"])) {
     switch ($_POST["action"]) {
         case "registratu": {
             $ezizena = $_POST["ezizena"];
@@ -61,7 +61,7 @@ if (isset ($_POST["action"])) {
             break;
         }
         case "JokalariaErosi": {
-            if ((isset ($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
+            if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                 $idZenbakia = $_POST["idZenbakia"];
 
                 require_once ("functions.php");
@@ -152,30 +152,30 @@ if (isset ($_POST["action"])) {
             break;
         }
         case "sobreaErosi": {
-            if ((isset ($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
+            if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                 $idZenbakia = $_POST["idZenbakia"];
                 //SELECT * FROM balorazioa WHERE zuzen_erantzun = 1 AND valid = 1 and teacher=0 ORDER BY RAND() LIMIT 1;
                 switch ($idZenbakia) {
                     case "1": {
-                        $premioConsolacion =100;
+                        $premioConsolacion = 100;
                         $sobrearenPrezioa = 500;
                         $sql = "SELECT * FROM jokalariak WHERE puntuazioa>=50 and puntuazioa<=80 ORDER BY RAND() LIMIT 1";
                         break;
                     }
                     case "2": {
-                        $premioConsolacion =200;
+                        $premioConsolacion = 200;
                         $sobrearenPrezioa = 1000;
                         $sql = "SELECT * FROM jokalariak WHERE puntuazioa>=70 and puntuazioa<=80 ORDER BY RAND() LIMIT 1";
                         break;
                     }
                     case "3": {
-                        $premioConsolacion =400;
+                        $premioConsolacion = 400;
                         $sobrearenPrezioa = 2000;
                         $sql = "SELECT * FROM jokalariak WHERE puntuazioa>=75 and puntuazioa<=95 ORDER BY RAND() LIMIT 1";
                         break;
                     }
                     case "4": {
-                        $premioConsolacion =1000;
+                        $premioConsolacion = 1000;
                         $sobrearenPrezioa = 4000;
                         $sql = "SELECT * FROM jokalariak WHERE puntuazioa>=85 and puntuazioa<=100 ORDER BY RAND() LIMIT 1";
                         break;
@@ -193,7 +193,7 @@ if (isset ($_POST["action"])) {
                         //JOKALARIAREN PREZIOA
                         $jokalariarenIzena = $row["izenAbizen"];
                         $jokalariarenId = $row["id"];/////////////////////////////////////////////////////////
-                        
+
                     }
                 } else {
                     echo "Jokalaria ez da aurkitu.";
@@ -252,12 +252,12 @@ if (isset ($_POST["action"])) {
                         } else {
                             echo "Errorea datuak datu-basean sartzerakoan";
                         }
-                    }else{
+                    } else {
                         echo "Ez daukazu diru nahikoa.";
                     }
                 } else {
-                    
-                    $kenduBeharrekoDirua = $erabiltzailearenDirua+$premioConsolacion;
+
+                    $kenduBeharrekoDirua = $erabiltzailearenDirua + $premioConsolacion;
 
                     $sql = "UPDATE weberabiltzaileak
                     SET dirua = $kenduBeharrekoDirua
@@ -270,9 +270,9 @@ if (isset ($_POST["action"])) {
                     } else {
                         echo "Errorea datuak datu-basean sartzerakoan";
                     }
-                    
-                   
-                    
+
+
+
                 }
 
 
@@ -336,6 +336,75 @@ if (isset ($_POST["action"])) {
             } catch (Exception $ex) {
                 echo 'Errore bat gertatu da saiatu berandugo berriro ';
             }
+            break;
+        }
+        case "jolastu": {
+            $apostua = $_POST["apostua"];
+
+            $primeraMitad = $_POST["primeraMitad"];
+            $segundaMitad = $_POST["segundaMitad"];
+
+            $taldearenMedia = $_POST["taldearenMedia"];
+
+            $ordenagailuarenPuntuazioRand = rand($primeraMitad, $segundaMitad);
+            require_once ("functions.php");
+
+            $conn = connection();
+            if ($taldearenMedia > $ordenagailuarenPuntuazioRand) {
+                $irabazlearenGolak = rand(2,5);
+                $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
+
+
+                echo "Partidoa irabazi duzu $irabazlearenGolak-$galtzailearenGolak\n";
+
+                $ezizena = $_SESSION["LogIn"];
+                $sql = "UPDATE weberabiltzaileak
+                SET dirua = dirua+$apostua
+                WHERE ezizena= '$ezizena';";
+                $irabazi = true;
+            } elseif ($taldearenMedia < $ordenagailuarenPuntuazioRand) {
+                $irabazlearenGolak = rand(2,5);
+                $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
+
+                echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
+
+                $ezizena = $_SESSION["LogIn"];
+                $sql = "UPDATE weberabiltzaileak
+                SET dirua = dirua-$apostua
+                WHERE ezizena= '$ezizena';";
+                $irabazi = false;
+            } else {
+                $irabazlearenGolak = rand(2,5);
+                $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
+
+                echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
+
+                $ezizena = $_SESSION["LogIn"];
+                $sql = "UPDATE weberabiltzaileak
+                SET dirua = dirua-$apostua
+                WHERE ezizena= '$ezizena';";
+                $irabazi = false;
+            }
+
+            $stmt = $conn->prepare($sql);
+            $success = $stmt->execute();
+            if ($success) {
+                if ($irabazi) {
+                    echo $apostua . "€ Irabazi dituzu";
+                } else {
+                    echo $apostua . "€ Galdu dituzu";
+                }
+            } else {
+                echo "Errorea datuak datu-basean sartzerakoan";
+            }
+
+            break;
+        }
+        case "sessionenSartu": {
+            $taldearenMedia = $_POST["taldearenMedia"];
+            $_SESSION["media"]=$taldearenMedia;
+
+
             break;
         }
     }

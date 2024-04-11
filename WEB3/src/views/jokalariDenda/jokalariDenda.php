@@ -49,8 +49,8 @@ require_once ("../../required/head.php");
     </span>
 </div>
 <div class="diruaAgertzeko diruaAgertzeko2 probaBack1">
-        <span>Zure dirua:
-            <?= $erabiltzailearenDirua ?>€
+        <span><center>Zure dirua:
+            <?= $erabiltzailearenDirua ?>€</center>
         </span>
     </div>
 <div class="containerDiruaOsoa">
@@ -113,7 +113,7 @@ require_once ("../../required/head.php");
         require_once (APP_DIR . "/src/required/functions.php");
         $conn = connection();
         $AutatutakoTaldea = (isset($_GET["selectTaldea"])) ? $_GET["selectTaldea"] : "Ajax";
-        $query = "SELECT * FROM erronka3.jokalariak WHERE taldea='$AutatutakoTaldea';";
+        $query = "SELECT * FROM erronka3.jokalariak WHERE taldea='$AutatutakoTaldea' ORDER BY puntuazioa DESC;";
 
         $result = $conn->query($query);
 
