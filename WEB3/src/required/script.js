@@ -421,11 +421,22 @@ $(document).ready(function () {
 
   $(".partidaJolastuDesblok").click(function () {
     var taldearenMedia = $("#taldearenMedia").val();
+    $.ajax({
+      type: "POST",
+      url: "../../required/ajaxDeiak.php",
+      data: {
+        action: "sessionenSartu",
+        taldearenMedia: taldearenMedia,
+      },
+    }).done(function (data) {
+      
+    });
+
     window.location.href =
-      "../partidaJolastu/partidaJolastu.php?media=" + taldearenMedia;
+      "../partidaJolastu/partidaJolastu.php";
   });
 
-  //PARTIDA JOLASTERA JOATEKO LOGIKA //////////////////////////////////////////
+  //PARTIDA JOLASTERA JOATEKO LOGIKA//////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   //PARTIDA JOLASTERA JOATEKO LOGIKA//////////////////////////////////////////////////////////////////////////////////
@@ -441,7 +452,7 @@ $(document).ready(function () {
       case "8389":
         var apostua = 1000;
         break;
-      case "9096":
+      case "9098":
         var apostua = 2000;
         break;
     }

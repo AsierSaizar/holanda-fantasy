@@ -351,7 +351,11 @@ if (isset($_POST["action"])) {
 
             $conn = connection();
             if ($taldearenMedia > $ordenagailuarenPuntuazioRand) {
-                echo "Partidoa irabazi duzu\n";
+                $irabazlearenGolak = rand(2,5);
+                $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
+
+
+                echo "Partidoa irabazi duzu $irabazlearenGolak-$galtzailearenGolak\n";
 
                 $ezizena = $_SESSION["LogIn"];
                 $sql = "UPDATE weberabiltzaileak
@@ -359,14 +363,22 @@ if (isset($_POST["action"])) {
                 WHERE ezizena= '$ezizena';";
                 $irabazi = true;
             } elseif ($taldearenMedia < $ordenagailuarenPuntuazioRand) {
-                echo "Partidoa galdu duzu\n";
+                $irabazlearenGolak = rand(2,5);
+                $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
+
+                echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
+
                 $ezizena = $_SESSION["LogIn"];
                 $sql = "UPDATE weberabiltzaileak
                 SET dirua = dirua-$apostua
                 WHERE ezizena= '$ezizena';";
                 $irabazi = false;
             } else {
-                echo "Partidoa galdu duzu\n";
+                $irabazlearenGolak = rand(2,5);
+                $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
+
+                echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
+
                 $ezizena = $_SESSION["LogIn"];
                 $sql = "UPDATE weberabiltzaileak
                 SET dirua = dirua-$apostua
@@ -385,6 +397,13 @@ if (isset($_POST["action"])) {
             } else {
                 echo "Errorea datuak datu-basean sartzerakoan";
             }
+
+            break;
+        }
+        case "sessionenSartu": {
+            $taldearenMedia = $_POST["taldearenMedia"];
+            $_SESSION["media"]=$taldearenMedia;
+
 
             break;
         }
