@@ -2,7 +2,7 @@
     margin-top: 20px;
     border: 0px solid;
     border-radius: 5px;
-    color: white;
+    color: var(--footerColor);
     height: auto;
     width: 170px;
     background-color: #f57c00;
@@ -13,7 +13,7 @@
 }
 
 .h1textua {
-    color: white;
+    color: var(--footerColor);
     text-shadow:
         -1px -1px 0 #000,
         1px -1px 0 #000,
@@ -24,7 +24,7 @@
 
 
 .partidaJolastu {
-    color: white;
+    color: var(--footerColor);
     border: 2px solid black;
     border-radius: 5px;
     width: 260px;
@@ -35,20 +35,20 @@
 }
 
 .partidaJolastuDesblok {
-    color: white;
+    color: var(--footerColor);
     background-color: var(--mainColor);
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
 }
 
 .partidaJolastu .h2textua  {
-    color: white;
+    color: var(--footerColor);
     text-decoration: none;
     display: block;
     padding: 10px 0;
 }
 
 .partidaJolastuDesblok .h2textua  {
-    color: rgb(255, 255, 255);
+    color: var(--footerColor);
 }
 
 
@@ -74,7 +74,7 @@
 .Medio,
 .Delantero,
 .Portero {
-    color: white;
+    color: var(--footerColor);
     padding: 5px;
     border-radius: 3px;
     margin: 5px 0;
@@ -100,7 +100,7 @@
     width: 33%;
     background-color: #ae69448c;
     border-radius: 10px;
-    border: 2px solid white;
+    border: 2px solid var(--footerColor);
     padding-top: 5px;
 }
 .plantillaContainerbarrukoa {
@@ -117,7 +117,7 @@
     border-radius: 5px;
     background-color: var(--mainColor);
     border: none;
-    color: white;
+    color: var(--footerColor);
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -144,14 +144,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid white;
+    border: 2px solid var(--footerColor);
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 200px;
     background-color: transparent;
     backdrop-filter: blur(5px);
-    color: white;
+    color: var(--footerColor);
 }
 
 .jokalariBakoitza>div {
@@ -162,7 +162,7 @@
     border-radius: 5px;
     background-color: var(--mainColor);
     border: none;
-    color: white;
+    color: var(--footerColor);
     padding: 10px 20px;
     cursor: pointer;
 }

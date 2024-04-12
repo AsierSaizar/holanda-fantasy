@@ -55,7 +55,7 @@ body {
     background-color: transparent;
     border: 2px solid;
     border-radius: 20px;
-    border-color: #fdfdfd;
+    border-color: var(--footerColor);
     backdrop-filter:  blur(8px);
     padding: 20px;
 }
@@ -70,14 +70,14 @@ body {
     margin: 5px;
     padding: 5px 10px;
     font-size: 14px;
-    color: #ffffff;
+    color: var(--footerColor);
     text-transform: uppercase;
     letter-spacing: 2px;
     cursor: pointer;
 }
 
 .wrapper .right .tabs ul li.active {
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid var(--footerColor);
 }
 
 .wrapper .right .register,
@@ -95,15 +95,15 @@ body {
     width: 100%;
     padding: 10px 15px;
     border: none;
-    border-bottom: 2px solid white; /* Añadimos borde blanco solo abajo */
+    border-bottom: 2px solid var(--footerColor); /* Añadimos borde blanco solo abajo */
     font-size: 12px;
     background: transparent; /* Hacemos el input transparente */
-    color: white;
+    color: var(--footerColor);
 }
 
 .btnLogIn, .btnRegist {
     margin-top: 20px;
-    background: #fdfdfd;
+    background: var(--footerColor);
     padding: 10px;
     text-align: center;
     text-transform: uppercase;

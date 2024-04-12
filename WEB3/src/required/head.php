@@ -6,7 +6,7 @@
     require_once ("define.php");
     $link = APP_DIR . "src/language/translations.php";
     require_once ($link); //APP_DIR erabilita itzulpenen dokumentua atzitu dugu.
-
+    
 
     //XMLko konfiguraziotik hartzen dute informazioa
     
@@ -29,7 +29,7 @@
 
         /* AZPIAN EGON BEAHR DA CSS-a mainColor eta footerColor erabiltzen dituztenak */
     </style>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holanda Fantasy</title>
@@ -88,32 +88,34 @@
                             </ul>
                         </nav>
                     </div>
-
-                </div>
-                <div class="laburpenaDiv">
-
-                    <form action="<?= HREF_SRC_DIR ?>/required/post.php" method="post">
-                        <input type="hidden" value="changeConfig" name="action" />
-                        <input type="hidden" value="<?= $_SERVER['REQUEST_URI'] ?>" name="returnUrl" />
-                        <div>
-                            <div>
-                                <label for="mainColor">Kolore nagusia:</label>
-                            </div>
-                            <div>
-                                <input type="color" id="mainColor" name="mainColor" value="<?= $config->mainColor ?>" />
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <label for="footerColor">Footer kolorea:</label>
-                            </div>
-                            <div>
-                                <input type="color" id="footerColor" name="footerColor"
-                                    value="<?= $config->footerColor ?>" />
-                            </div>
-                        </div>
-                        <button class="GordeBtn" type="submit">Gorde</button>
-                    </form>
+                    
+                    
+                    <div class="laburpenaDiv">
+                        <center>
+                        <h6><b>KOLOREAK KONFIGURATU:</b></h6>
+                            <form action="<?= HREF_SRC_DIR ?>/required/post.php" method="post">
+                                <input type="hidden" value="changeConfig" name="action" />
+                                <input type="hidden" value="<?= $_SERVER['REQUEST_URI'] ?>" name="returnUrl" />
+                                <div>
+                                    <div>
+                                        <label for="mainColor">Kolore nagusia:</label>
+                                     
+                                        <input type="color" id="mainColor" name="mainColor"
+                                            value="<?= $config->mainColor ?>" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <label for="footerColor">Footer kolorea:</label>
+                                    
+                                        <input type="color" id="footerColor" name="footerColor"
+                                            value="<?= $config->footerColor ?>" />
+                                    </div>
+                                </div>
+                                <button class="GordeBtn" type="submit">Gorde</button>
+                            </form>
+                        </center>
+                    </div>
                 </div>
             </div>
             <!-- SIDE BARRANTZAT DA HAUUU //////////////////-->
