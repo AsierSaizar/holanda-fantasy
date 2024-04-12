@@ -24,6 +24,7 @@
 
 
 .partidaJolastu {
+    color: white;
     border: 2px solid black;
     border-radius: 5px;
     width: 260px;
@@ -34,7 +35,8 @@
 }
 
 .partidaJolastuDesblok {
-    background-color: orange;
+    color: white;
+    background-color: var(--mainColor);
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
 }
 
@@ -46,7 +48,7 @@
 }
 
 .partidaJolastuDesblok .h2textua  {
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 
@@ -113,7 +115,7 @@
 .jokoraEmanBtn,
 .plantilaraEmanBtn {
     border-radius: 5px;
-    background-color: #f57c00;
+    background-color: var(--mainColor);
     border: none;
     color: white;
     padding: 10px 20px;
@@ -128,7 +130,7 @@
 
 .brilliant-border {
     border: 3px solid;
-    border-color: #000000;
+    border-color: var(--mainColor);
 }
 
 .jokalariakContainer {
@@ -158,7 +160,7 @@
 
 .plantilaraEmanBtn {
     border-radius: 5px;
-    background-color: orange;
+    background-color: var(--mainColor);
     border: none;
     color: white;
     padding: 10px 20px;

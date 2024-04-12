@@ -191,7 +191,7 @@ if (isset($_POST["action"])) {
                     while ($row = $result->fetch_assoc()) {
 
                         //JOKALARIAREN PREZIOA
-                        $jokalariarenIzena = $row["izenAbizen"];
+                        $jokalariarenIzena = $row["izen"].$row["abizen"];
                         $jokalariarenId = $row["id"];/////////////////////////////////////////////////////////
 
                     }

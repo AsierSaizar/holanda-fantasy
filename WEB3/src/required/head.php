@@ -3,19 +3,33 @@
 
 <head>
     <?php
-    //Asier
-    define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/Desktop/HolandaFantasy/WEB3/'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
-    define('HREF_VIEWS_DIR', '/Desktop/HolandaFantasy/WEB3/src/views'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
-    define('HREF_SRC_DIR', '/Desktop/HolandaFantasy/WEB3/src'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
-    
-
-    /*Haimar*/
-    //define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/GarapenIngurunea/ProjectManager/WEB/holanda-fantasy/WEB3/'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
-    //define('HREF_VIEWS_DIR', '/GarapenIngurunea/ProjectManager/WEB/holanda-fantasy/WEB3/src/views'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
-    //define('HREF_SRC_DIR', '/GarapenIngurunea/ProjectManager/WEB/holanda-fantasy/WEB3/src');
+    require_once ("define.php");
     $link = APP_DIR . "src/language/translations.php";
     require_once ($link); //APP_DIR erabilita itzulpenen dokumentua atzitu dugu.
+
+
+    //XMLko konfiguraziotik hartzen dute informazioa
+    
+    $config = simplexml_load_file(APP_DIR . "src/required/conf.xml");
+
+    $mainColor = $config->mainColor;
+    $footerColor = $config->footerColor;
+
+
     ?>
+    <style>
+        :root {
+            --mainColor:
+                <?= $mainColor ?>
+            ;
+            --footerColor:
+                <?= $footerColor ?>
+            ;
+        }
+
+        /* AZPIAN EGON BEAHR DA CSS-a mainColor eta footerColor erabiltzen dituztenak */
+    </style>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holanda Fantasy</title>
@@ -51,7 +65,9 @@
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
                 id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel"><center><b>HOLANDA FANTASY</b></center></h5>
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+                        <center><b>HOLANDA FANTASY</b></center>
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -74,6 +90,31 @@
                     </div>
 
                 </div>
+                <div class="laburpenaDiv">
+
+                    <form action="<?= HREF_SRC_DIR ?>/required/post.php" method="post">
+                        <input type="hidden" value="changeConfig" name="action" />
+                        <input type="hidden" value="<?= $_SERVER['REQUEST_URI'] ?>" name="returnUrl" />
+                        <div>
+                            <div>
+                                <label for="mainColor">Kolore nagusia:</label>
+                            </div>
+                            <div>
+                                <input type="color" id="mainColor" name="mainColor" value="<?= $config->mainColor ?>" />
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="footerColor">Footer kolorea:</label>
+                            </div>
+                            <div>
+                                <input type="color" id="footerColor" name="footerColor"
+                                    value="<?= $config->footerColor ?>" />
+                            </div>
+                        </div>
+                        <button class="GordeBtn" type="submit">Gorde</button>
+                    </form>
+                </div>
             </div>
             <!-- SIDE BARRANTZAT DA HAUUU //////////////////-->
 
@@ -94,7 +135,6 @@
 
 
             <div class="language">
-                <!-- HTML-A -->
                 <div class="header grid-elem">
                     <?php require_once (APP_DIR . "/src/required/selectLang.php"); ?>
                 </div>
@@ -102,14 +142,14 @@
 
             <?php
 
-            if ((isset($_SESSION['LogIn']))and(($_SESSION['LogIn']) != "")) {
+            if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                 $ezizena = $_SESSION["LogIn"];
-            }else{
+            } else {
                 $ezizena = "LogIn";
             }
             ?>
             <div class="logInBtn">
-                <a class="logInBtnA" href="<?= HREF_SRC_DIR ?>/views/logIn/logIn.php"><?=$ezizena?></a>
+                <a class="logInBtnA" href="<?= HREF_SRC_DIR ?>/views/logIn/logIn.php"><?= $ezizena ?></a>
             </div>
         </div>
     </header>

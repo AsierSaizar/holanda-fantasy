@@ -43,7 +43,7 @@ body {
     margin-right: 30px;
     border: 1px solid;
     border-radius: 20px;
-    background-color: orange;
+    background-color: var(--mainColor);
 
 }
 .diruaAgertzeko2 {
@@ -53,7 +53,7 @@ body {
     margin-right: 30px;
     border: 1px solid;
     border-radius: 20px;
-    background-color: orange;
+    background-color: var(--mainColor);
     padding-left: 20px;
 
 }
@@ -86,7 +86,7 @@ body {
     background-color: rgba(249, 249, 249, 0.588);
     border: 3px solid;
     border-radius: 20px;
-    border-color: #fe9c00;
+    border-color: var(--mainColor);
     margin: 1em;
     padding: 7px;
     color: rgb(0, 0, 0);
@@ -150,13 +150,13 @@ body {
     background-color: rgb(249, 249, 249);
     border: 3px solid;
     border-radius: 20px;
-    border-color: orange;
+    border-color: var(--mainColor);
     margin: 1em;
     padding: 7px;
     color: rgb(0, 0, 0);
     text-align: center;
   }
   .erosiJokalaria:hover{
-    background-color: orange;
+    background-color: var(--mainColor);
     
   }

@@ -126,7 +126,7 @@ if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
                 <div class="jokalariBakoitza">
                     <b>
                         <div class="izenAbizenClass">
-                            <?= $row["izenAbizen"] ?>
+                            <?= $row["izen"].$row["abizen"] ?>
                         </div>
                         <div class="posizioaClass">
                             <?= $row["posizioa"] ?>
