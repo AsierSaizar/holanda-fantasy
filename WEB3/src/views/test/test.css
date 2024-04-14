@@ -8,3 +8,27 @@
      list-style: none;
      font-family: 'Nunito', sans-serif;
 }
+
+.question-container {
+     border: 2px solid black; /* Borde negro */
+     background-color:orange; /* Fondo naranja */
+     padding: 10px;
+     margin-bottom: 20px;
+     opacity: 1;
+   }
+   
+   .question {
+     font-weight: bold;
+     margin-bottom: 10px;
+     text-align: center;
+   }
+   
+   .answers {
+     list-style-type: none;
+     padding-left: 0;
+   }
+   
+   .answers li {
+     margin-bottom: 5px;
+   }
+   
