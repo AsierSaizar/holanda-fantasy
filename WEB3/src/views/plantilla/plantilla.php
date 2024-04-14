@@ -104,7 +104,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {?>
                     while ($row = $result->fetch_assoc()): ?>
                         <div class="jokalariBakoitza">
                             <div class="izenAbizen">
-                                <?= htmlspecialchars($row['izenAbizen']) ?>
+                                <?= htmlspecialchars($row["izen"].$row["abizen"]) ?>
                             </div>
                             <div class="posizioa">
                                 <?= htmlspecialchars($row['posizioa']) ?>
@@ -156,7 +156,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {?>
                             <div class="jokalariBakoitzaPlantilan <?= $row['posizioa'] ?>">
 
                                 <div>
-                                    <?= $row['izenAbizen'] ?>
+                                    <?= $row["izen"].$row["abizen"] ?>
                                 </div>
 
                                 <div>

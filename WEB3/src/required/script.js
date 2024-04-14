@@ -460,6 +460,7 @@ $(document).ready(function () {
     var segundaMitad = aukeraid.substring(aukeraid.length / 2);
 
     var taldearenMedia = $("#taldearenMedia").val();
+    var taldearenDirua = $("#taldearenDirua").val();
 
     $.ajax({
       type: "POST",
@@ -470,6 +471,7 @@ $(document).ready(function () {
         primeraMitad: primeraMitad,
         segundaMitad: segundaMitad,
         taldearenMedia: taldearenMedia,
+        taldearenDirua: taldearenDirua,
       },
       success: function (response) {
         console.log(response);

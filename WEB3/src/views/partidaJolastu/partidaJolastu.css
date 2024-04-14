@@ -164,3 +164,16 @@ body {
 .zailtasuna3{
     background-color: rgba(239, 83, 80, 0.585); /* Un tono de rojo que implica dificultad y desafío */
 }
+
+.diruaJokoan{
+    display: grid;
+    grid-gap: 2em;
+    width: 230px;
+    height: auto;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: rgba(250, 250, 250, 0.585);
+    margin-top: 50px;
+    padding: 15px;
+    font-size: larger;
+}
