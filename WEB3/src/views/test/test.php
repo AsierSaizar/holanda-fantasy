@@ -29,88 +29,102 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-<center>
-  <br>
-  <?php
-  if ($result->num_rows > 0) {
-    // Variable para almacenar el número de pregunta actual
-    $current_question_number = 1;
-    // Mostrar cada pregunta y respuestas
-    while ($row = $result->fetch_assoc()) {
-      ?>
-      <div class="question-container">
-        <p><?= $row["galdera"] ?></p>
-        <ul class="answers">
-          <?php
-          // Asignar el número de pregunta actual al conjunto de checkboxes
-          $checkbox_group = 'checkbox_group_' . $current_question_number;
-          $correct_answer = $row["erantzunaZuzena"];
-          $zenb = rand(1, 6);
-          switch ($zenb) {
-            case 1:
-              $lehenErantzuna = $row["erantzuna1"];
-              $bigarrenErantzuna = $row["erantzuna2"];
-              $hirugarrenErantzuna = $row["erantzunaZuzena"];
-              break;
-            case 2:
-              $lehenErantzuna = $row["erantzunaZuzena"];
-              $bigarrenErantzuna = $row["erantzuna1"];
-              $hirugarrenErantzuna = $row["erantzuna2"];
-              break;
-            case 3:
-              $lehenErantzuna = $row["erantzuna2"];
-              $bigarrenErantzuna = $row["erantzunaZuzena"];
-              $hirugarrenErantzuna = $row["erantzuna1"];
-              break;
-            case 4:
-              $lehenErantzuna = $row["erantzuna2"];
-              $bigarrenErantzuna = $row["erantzuna1"];
-              $hirugarrenErantzuna = $row["erantzunaZuzena"];
-              break;
-            case 5:
-              $lehenErantzuna = $row["erantzuna1"];
-              $bigarrenErantzuna = $row["erantzunaZuzena"];
-              $hirugarrenErantzuna = $row["erantzuna2"];
-              break;
-            case 6:
-              $lehenErantzuna = $row["erantzunaZuzena"];
-              $bigarrenErantzuna = $row["erantzuna2"];
-              $hirugarrenErantzuna = $row["erantzuna1"];
-              break;
-          }
+  <center>
+    <br>
+    <?php
+    if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
+      if ($result->num_rows > 0) {
+        // Variable para almacenar el número de pregunta actual
+        $current_question_number = 1;
+        // Mostrar cada pregunta y respuestas
+        while ($row = $result->fetch_assoc()) {
           ?>
-          <li>
-            <label>
-              <input type="checkbox" class="answer-checkbox" name="answer[]" value="<?= $lehenErantzuna ?>"
-                data-group="<?= $checkbox_group ?>" data-correct-answer="<?= $correct_answer ?>">
-              <?= $lehenErantzuna ?>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" class="answer-checkbox" name="answer[]" value="<?= $bigarrenErantzuna ?>"
-                data-group="<?= $checkbox_group ?>" data-correct-answer="<?= $correct_answer ?>">
-              <?= $bigarrenErantzuna ?>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" class="answer-checkbox" name="answer[]" value="<?= $hirugarrenErantzuna ?>"
-                data-group="<?= $checkbox_group ?>" data-correct-answer="<?= $correct_answer ?>">
-              <?= $hirugarrenErantzuna ?>
-            </label>
-          </li>
-        </ul>
-      </div>
-      <?php
-      // Incrementar el número de pregunta actual para la siguiente iteración
-      $current_question_number++;
+          <div class="question-container">
+            <p><?= $row["galdera"] ?></p>
+            <ul class="answers">
+              <?php
+              // Asignar el número de pregunta actual al conjunto de checkboxes
+              $checkbox_group = 'checkbox_group_' . $current_question_number;
+              $correct_answer = $row["erantzunaZuzena"];
+              $zenb = rand(1, 6);
+              switch ($zenb) {
+                case 1:
+                  $lehenErantzuna = $row["erantzuna1"];
+                  $bigarrenErantzuna = $row["erantzuna2"];
+                  $hirugarrenErantzuna = $row["erantzunaZuzena"];
+                  break;
+                case 2:
+                  $lehenErantzuna = $row["erantzunaZuzena"];
+                  $bigarrenErantzuna = $row["erantzuna1"];
+                  $hirugarrenErantzuna = $row["erantzuna2"];
+                  break;
+                case 3:
+                  $lehenErantzuna = $row["erantzuna2"];
+                  $bigarrenErantzuna = $row["erantzunaZuzena"];
+                  $hirugarrenErantzuna = $row["erantzuna1"];
+                  break;
+                case 4:
+                  $lehenErantzuna = $row["erantzuna2"];
+                  $bigarrenErantzuna = $row["erantzuna1"];
+                  $hirugarrenErantzuna = $row["erantzunaZuzena"];
+                  break;
+                case 5:
+                  $lehenErantzuna = $row["erantzuna1"];
+                  $bigarrenErantzuna = $row["erantzunaZuzena"];
+                  $hirugarrenErantzuna = $row["erantzuna2"];
+                  break;
+                case 6:
+                  $lehenErantzuna = $row["erantzunaZuzena"];
+                  $bigarrenErantzuna = $row["erantzuna2"];
+                  $hirugarrenErantzuna = $row["erantzuna1"];
+                  break;
+              }
+              ?>
+              <li>
+                <label>
+                  <input type="checkbox" class="answer-checkbox" name="answer[]" value="<?= $lehenErantzuna ?>"
+                    data-group="<?= $checkbox_group ?>" data-correct-answer="<?= $correct_answer ?>">
+                  <?= $lehenErantzuna ?>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" class="answer-checkbox" name="answer[]" value="<?= $bigarrenErantzuna ?>"
+                    data-group="<?= $checkbox_group ?>" data-correct-answer="<?= $correct_answer ?>">
+                  <?= $bigarrenErantzuna ?>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" class="answer-checkbox" name="answer[]" value="<?= $hirugarrenErantzuna ?>"
+                    data-group="<?= $checkbox_group ?>" data-correct-answer="<?= $correct_answer ?>">
+                  <?= $hirugarrenErantzuna ?>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <?php
+          // Incrementar el número de pregunta actual para la siguiente iteración
+          $current_question_number++;
+        }
+      }
+      ?>
+    </center>
+    <center>
+      <button class="testBidali" type="submit">Bidali formularioa
+    </center><?php
+    } else {
+      ?>
+    <center>
+      <h1>Log in to complete the tests</h1>
+    </center>
+    <?php
     }
-  }
-  ?></center>
-  <center><button class="testBidali" type="submit">Bidali formularioa</center>
+    ?>
+<br><br>
 
 
 
-
-</html>
+<?php
+require_once("../../required/footer.php");
+?>

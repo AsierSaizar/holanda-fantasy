@@ -158,3 +158,7 @@ if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
         ?>
     </div>
 </div>
+<br><br>
+<?php
+require_once("../../required/footer.php");
+?>

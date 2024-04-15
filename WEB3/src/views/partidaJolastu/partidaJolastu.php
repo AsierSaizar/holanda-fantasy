@@ -78,3 +78,8 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
     </center>
     <?php
 }
+?>
+<br><br>
+<?php
+require_once("../../required/footer.php");
+?>

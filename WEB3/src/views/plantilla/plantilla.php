@@ -6,7 +6,8 @@ require_once ("../../required/head.php");
 <link rel="stylesheet" href="<?= HREF_SRC_DIR ?>/views/plantilla/plantilla.css">
 
 <?php
-if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) { ?>
+if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) { 
+    ?>
     <center><button class="tituloakPlantilla PlantillaErakutsi">Plantillako jokalariak:</button></center>
     <center><button class="tituloakPlantilla JokokoaErakutsi">Jokoko jokalariak:</button></center><?php
     $ezizena = $_SESSION["LogIn"];
@@ -198,4 +199,8 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) { ?>
     <?php
 }
 
+?>
+<br><br>
+<?php
+require_once("../../required/footer.php");
 ?>
