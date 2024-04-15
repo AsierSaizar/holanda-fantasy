@@ -429,7 +429,7 @@ $(document).ready(function () {
         taldearenMedia: taldearenMedia,
       },
     }).done(function (data) {
-      
+
     });
 
     window.location.href =
@@ -487,4 +487,78 @@ $(document).ready(function () {
 
   //PARTIDA JOLASTERA JOATEKO LOGIKA ////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+  /////////////////////////////////////////////////////////////////////////////////////////////
+  //TESTAREN LOGIkA ////////////////////////////////////////////////////////////////
+
+
+
+  $('.answer-checkbox').click(function () {
+    var group = $(this).data('group');
+    var correctAnswer = $(this).data('correct-answer');
+    if ($(this).prop('checked')) {
+      $('.answer-checkbox[data-group="' + group + '"]').not(this).prop('disabled', true);
+    } else {
+      $('.answer-checkbox[data-group="' + group + '"]').prop('disabled', false);
+    }
+    // Comprobar si la respuesta seleccionada es correcta
+    if ($(this).val() === correctAnswer && $(this).prop('checked')) {
+      $('.answer-checkbox[data-group="' + group + '"]').not(this).prop('checked', false);
+    }
+  });
+
+  $('.testBidali').click(function (e) {
+    var correctCount = 0;
+    $('.answers').each(function () {
+      var $checkedCheckbox = $(this).find('.answer-checkbox:checked');
+      if ($checkedCheckbox.length > 0) {
+        var selectedAnswer = $checkedCheckbox.val();
+        var correctAnswer = $checkedCheckbox.data('correct-answer');
+        if (selectedAnswer === correctAnswer) {
+          correctCount++;
+        }
+      }
+    });
+    alert("Erantzun zuzenak " + correctCount);
+    if (correctCount == 1) {
+      alert("100€ irabazi dituzu")
+    } else if (correctCount == 2) {
+      alert("200€ irabazi dituzu")
+    } else if (correctCount == 3) {
+      alert("300€ irabazi dituzu")
+    }
+
+    // Calcular el dinero ganado
+    var dineroGanado;
+    if (correctCount == 1) {
+      dineroGanado = 100;
+    } else if (correctCount == 2) {
+      dineroGanado = 200;
+    } else if (correctCount == 3) {
+      dineroGanado = 300;
+    } else {
+      dineroGanado = 0; // No hay respuestas correctas, por lo tanto, no hay dinero ganado
+    }
+    $.ajax({
+      type: "POST",
+      url: "../../required/ajaxDeiak.php",
+      data: {
+        action: "diruaGehitu",
+        dineroGanado: dineroGanado,
+      },
+      success: function (response) {
+        console.log(response);
+      },
+    }).done(function (data) {
+      if (!(data == "")) {
+        alert(data);
+      }
+
+      location.reload();
+    });
+    // Realizar la solicitud AJAX para enviar el dinero ganado al servidor
+
+  });
 });
