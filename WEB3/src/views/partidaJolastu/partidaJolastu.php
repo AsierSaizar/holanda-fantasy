@@ -6,32 +6,54 @@ require_once ("../../required/head.php");
 <link rel="stylesheet" href="<?= HREF_SRC_DIR ?>/views/partidaJolastu/partidaJolastu.css">
 <?php
 if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
-        $ezizena = $_SESSION["LogIn"];
-    
-        require_once ("../../required/functions.php");
-        //require_once(HREF_SRC_DIR. "/required/functions.php");
-    
-        $conn = connection();
-    
-        $sql = "SELECT * FROM weberabiltzaileak where ezizena = '$ezizena'";
-        $result = $conn->query($sql);
-    
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $erabiltzailearenDirua = $row["dirua"];
-            }
-        } else {
-            echo "ez dago ezizen horrekin usuariorik.";
+    $ezizena = $_SESSION["LogIn"];
+
+    require_once ("../../required/functions.php");
+    //require_once(HREF_SRC_DIR. "/required/functions.php");
+
+    $conn = connection();
+
+    $sql = "SELECT * FROM weberabiltzaileak where ezizena = '$ezizena'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $erabiltzailearenDirua = $row["dirua"];
         }
-    
-    
+    } else {
+        echo "ez dago ezizen horrekin usuariorik.";
+    }
+    $query = "SELECT AVG(puntuazioa) AS media_puntuacion
+        FROM jokalariak
+        WHERE id IN (
+            SELECT idJokalaria
+            FROM erabiltzaileenjokalariak
+            WHERE idErabiltzaile IN (
+                SELECT id
+                FROM weberabiltzaileak
+                WHERE ezizena = '$ezizena'
+            ) AND egoera='jokoan'
+        );";
+
+    $result = $conn->query($query);
+    $row = $result->fetch_assoc();
+
+    $puntuazioBatazbestekoa = $row['media_puntuacion'];
+
     $sessionenSartu = $_SESSION["media"];
     ?>
     <center>
         <div class="diruaJokoan">
             <span>
                 <center><b>Zure dirua:
-                    <?= $erabiltzailearenDirua ?>€</b>
+                        <?= $erabiltzailearenDirua ?>€</b>
+                </center>
+            </span>
+        </div>
+        <div class="puntuazioa diruaJokoan">
+            <span>
+                <center><b>Zure puntuazio media:
+                        <?= $puntuazioBatazbestekoa ?></b>
                 </center>
             </span>
         </div>

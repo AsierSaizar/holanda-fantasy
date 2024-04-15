@@ -106,7 +106,7 @@
                                 </div>
                                 <div>
                                     <div>
-                                        <label for="footerColor">Footer kolorea:</label>
+                                        <label for="footerColor">Bigarren kolorea:</label>
                                     
                                         <input type="color" id="footerColor" name="footerColor"
                                             value="<?= $config->footerColor ?>" />
