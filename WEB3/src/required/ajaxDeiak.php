@@ -191,7 +191,7 @@ if (isset($_POST["action"])) {
                     while ($row = $result->fetch_assoc()) {
 
                         //JOKALARIAREN PREZIOA
-                        $jokalariarenIzena = $row["izen"].$row["abizen"];
+                        $jokalariarenIzena = $row["izen"] . $row["abizen"];
                         $jokalariarenId = $row["id"];/////////////////////////////////////////////////////////
 
                     }
@@ -346,47 +346,47 @@ if (isset($_POST["action"])) {
 
             $taldearenMedia = $_POST["taldearenMedia"];
             $taldearenDirua = $_POST["taldearenDirua"];
-            if($apostua<=$taldearenDirua){
+            if ($apostua <= $taldearenDirua) {
                 $ordenagailuarenPuntuazioRand = rand($primeraMitad, $segundaMitad);
                 require_once ("functions.php");
-    
+
                 $conn = connection();
                 if ($taldearenMedia > $ordenagailuarenPuntuazioRand) {
-                    $irabazlearenGolak = rand(2,5);
-                    $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
-    
-    
+                    $irabazlearenGolak = rand(2, 5);
+                    $galtzailearenGolak = $irabazlearenGolak - rand(1, 2);
+
+
                     echo "Partidoa irabazi duzu $irabazlearenGolak-$galtzailearenGolak\n";
-    
+
                     $ezizena = $_SESSION["LogIn"];
                     $sql = "UPDATE weberabiltzaileak
                     SET dirua = dirua+$apostua
                     WHERE ezizena= '$ezizena';";
                     $irabazi = true;
                 } elseif ($taldearenMedia < $ordenagailuarenPuntuazioRand) {
-                    $irabazlearenGolak = rand(2,5);
-                    $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
-    
+                    $irabazlearenGolak = rand(2, 5);
+                    $galtzailearenGolak = $irabazlearenGolak - rand(1, 2);
+
                     echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
-    
+
                     $ezizena = $_SESSION["LogIn"];
                     $sql = "UPDATE weberabiltzaileak
                     SET dirua = dirua-$apostua
                     WHERE ezizena= '$ezizena';";
                     $irabazi = false;
                 } else {
-                    $irabazlearenGolak = rand(2,5);
-                    $galtzailearenGolak = $irabazlearenGolak-rand(1,2);
-    
+                    $irabazlearenGolak = rand(2, 5);
+                    $galtzailearenGolak = $irabazlearenGolak - rand(1, 2);
+
                     echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
-    
+
                     $ezizena = $_SESSION["LogIn"];
                     $sql = "UPDATE weberabiltzaileak
                     SET dirua = dirua-$apostua
                     WHERE ezizena= '$ezizena';";
                     $irabazi = false;
                 }
-    
+
                 $stmt = $conn->prepare($sql);
                 $success = $stmt->execute();
                 if ($success) {
@@ -398,17 +398,41 @@ if (isset($_POST["action"])) {
                 } else {
                     echo "Errorea datuak datu-basean sartzerakoan";
                 }
-            }else{
+            } else {
                 echo "Ezdaukazu diru nahikoa";
             }
 
-            
+
 
             break;
         }
         case "sessionenSartu": {
             $taldearenMedia = $_POST["taldearenMedia"];
-            $_SESSION["media"]=$taldearenMedia;
+            $_SESSION["media"] = $taldearenMedia;
+
+
+            break;
+        }
+        case "diruaGehitu": {
+            require_once ("functions.php");
+            $conn = connection();
+            $ezizena = $_SESSION['LogIn'];
+
+            // Obtener el dinero ganado del formulario
+            $irabazitakoDirua = $_POST["dineroGanado"];
+
+
+
+            // Consulta SQL para actualizar el valor del dinero
+            $sql = "UPDATE weberabiltzaileak SET dirua = dirua + $irabazitakoDirua WHERE ezizena = '$ezizena'; ";
+
+            $stmt = $conn->prepare($sql);
+            $success = $stmt->execute();
+                
+
+
+            // Cerrar la conexión
+            $conn->close();
 
 
             break;
