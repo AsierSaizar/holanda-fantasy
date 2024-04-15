@@ -13,7 +13,7 @@ $sql = "SELECT galdera, erantzuna1, erantzuna2, erantzunaZuzena FROM testgaldera
 $result = $conn->query($sql);
 
 // Cerrar conexión
-$conn->close();
+
 ?>
 <link rel="stylesheet" href="<?= HREF_SRC_DIR ?>/views/test/test.css">
 
