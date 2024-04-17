@@ -5,7 +5,7 @@ require_once ("../../required/head.php");
 
 <link rel="stylesheet" href="<?= HREF_SRC_DIR ?>/views/datuKuriosoak/datuKuriosoak.css">
 
-<center>
+<center><br>
 <h1 id="h1">Fun Facts</h1>
 <?php
 if (file_exists('datuak.xml')) {
@@ -25,15 +25,15 @@ if (file_exists('datuak.xml')) {
     <h1>Add fun fact</h1>
     <form action="submit_curiosity.php" method="post">
         <label for="name">Name and surname:</label>
-        <input type="text" id="name" name="name" required>
+        <input class="inputText" type="text" id="name" name="name" required>
 
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
+        <input class="inputText" type="text" id="title" name="title" required>
 
         <label for="body">Body:</label>
-        <textarea id="body" name="body" required></textarea>
+        <textarea class="textarea" id="body" name="body" required></textarea>
 
-        <input type="submit" value="Send fun fact">
+        <input class="inputText" type="submit" value="Send fun fact">
     </form>
 </div>
 <br><br>

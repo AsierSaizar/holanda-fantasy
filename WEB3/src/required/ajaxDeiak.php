@@ -92,7 +92,7 @@ if (isset($_POST["action"])) {
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        $erabiltzailearenId = $row["id"];/////////////////////////////////////////////////////
+                        $erabiltzailearenId = $row["id"];
                         $erabiltzailearenDirua = $row["dirua"];
                     }
                 } else {
@@ -154,7 +154,6 @@ if (isset($_POST["action"])) {
         case "sobreaErosi": {
             if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                 $idZenbakia = $_POST["idZenbakia"];
-                //SELECT * FROM balorazioa WHERE zuzen_erantzun = 1 AND valid = 1 and teacher=0 ORDER BY RAND() LIMIT 1;
                 switch ($idZenbakia) {
                     case "1": {
                         $premioConsolacion = 100;

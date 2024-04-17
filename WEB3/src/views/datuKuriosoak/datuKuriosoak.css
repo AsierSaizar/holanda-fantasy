@@ -23,7 +23,6 @@
 .form-container {
     width: 80%;
     max-width: 600px;
-    background-color: #ffffff;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
@@ -31,7 +30,7 @@
 }
 
 .form-container {
-    background-color: #e9ecef;
+    background-color: var(--mainColor);
     padding: 15px;
     border-left: 5px solid #007bff;
     border-radius: 4px;
@@ -40,11 +39,11 @@
 label {
     display: block;
     margin-bottom: 8px;
-    color: #666;
+    color: var(--footerColor);
     font-size: 14px;
 }
 
-input[type="text"], textarea {
+.inputText, .textarea {
     width: calc(100% - 16px); /* adjust width to account for padding */
     padding: 8px;
     margin-bottom: 16px;
@@ -53,7 +52,8 @@ input[type="text"], textarea {
     box-sizing: border-box; /* includes padding and border in width */
 }
 
-textarea {
+
+.textarea {
     height: 100px;
     resize: vertical; /* allows vertical resize only */
 }
@@ -110,7 +110,7 @@ body {
     }
 }
 #h1{
-    background-color: #ffe32c;
+    background-color: var(--mainColor);
     width: 200px;
     color: #ffffff;
     border-radius: 20px;
