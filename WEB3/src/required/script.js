@@ -30,22 +30,36 @@ $(document).ready(function () {
     var input = $(this);
     var inputValue = input.val();
 
-    switch (input.attr("placeholder")) {
-      case "Username":
+    switch (input.attr("id")) {
+      case "ezizena":
         if (validateUsername(inputValue)) {
           input.css("border-color", "green");
         } else {
           input.css("border-color", "red");
         }
         break;
-      case "E-mail":
+      case "emailaRegist":
         if (validateEmail(inputValue)) {
           input.css("border-color", "green");
         } else {
           input.css("border-color", "red");
         }
         break;
-      case "Password":
+      case "emailaLog":
+        if (validateEmail(inputValue)) {
+          input.css("border-color", "green");
+        } else {
+          input.css("border-color", "red");
+        }
+        break;
+      case "pasahitzRegist":
+        if (validatePassword(inputValue)) {
+          input.css("border-color", "green");
+        } else {
+          input.css("border-color", "red");
+        }
+        break;
+      case "pasahitzaLog":
         if (validatePassword(inputValue)) {
           input.css("border-color", "green");
         } else {
@@ -428,12 +442,9 @@ $(document).ready(function () {
         action: "sessionenSartu",
         taldearenMedia: taldearenMedia,
       },
-    }).done(function (data) {
+    }).done(function (data) {});
 
-    });
-
-    window.location.href =
-      "../partidaJolastu/partidaJolastu.php";
+    window.location.href = "../partidaJolastu/partidaJolastu.php";
   });
 
   //PARTIDA JOLASTERA JOATEKO LOGIKA//////////////////////////////////////////
@@ -488,34 +499,34 @@ $(document).ready(function () {
   //PARTIDA JOLASTERA JOATEKO LOGIKA ////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
   /////////////////////////////////////////////////////////////////////////////////////////////
   //TESTAREN LOGIkA ////////////////////////////////////////////////////////////////
 
-
-
-  $('.answer-checkbox').click(function () {
-    var group = $(this).data('group');
-    var correctAnswer = $(this).data('correct-answer');
-    if ($(this).prop('checked')) {
-      $('.answer-checkbox[data-group="' + group + '"]').not(this).prop('disabled', true);
+  $(".answer-checkbox").click(function () {
+    var group = $(this).data("group");
+    var correctAnswer = $(this).data("correct-answer");
+    if ($(this).prop("checked")) {
+      $('.answer-checkbox[data-group="' + group + '"]')
+        .not(this)
+        .prop("disabled", true);
     } else {
-      $('.answer-checkbox[data-group="' + group + '"]').prop('disabled', false);
+      $('.answer-checkbox[data-group="' + group + '"]').prop("disabled", false);
     }
     // Comprobar si la respuesta seleccionada es correcta
-    if ($(this).val() === correctAnswer && $(this).prop('checked')) {
-      $('.answer-checkbox[data-group="' + group + '"]').not(this).prop('checked', false);
+    if ($(this).val() === correctAnswer && $(this).prop("checked")) {
+      $('.answer-checkbox[data-group="' + group + '"]')
+        .not(this)
+        .prop("checked", false);
     }
   });
 
-  $('.testBidali').click(function (e) {
+  $(".testBidali").click(function (e) {
     var correctCount = 0;
-    $('.answers').each(function () {
-      var $checkedCheckbox = $(this).find('.answer-checkbox:checked');
+    $(".answers").each(function () {
+      var $checkedCheckbox = $(this).find(".answer-checkbox:checked");
       if ($checkedCheckbox.length > 0) {
         var selectedAnswer = $checkedCheckbox.val();
-        var correctAnswer = $checkedCheckbox.data('correct-answer');
+        var correctAnswer = $checkedCheckbox.data("correct-answer");
         if (selectedAnswer === correctAnswer) {
           correctCount++;
         }
@@ -523,11 +534,11 @@ $(document).ready(function () {
     });
     alert("Erantzun zuzenak " + correctCount);
     if (correctCount == 1) {
-      alert("100€ irabazi dituzu")
+      alert("100€ irabazi dituzu");
     } else if (correctCount == 2) {
-      alert("200€ irabazi dituzu")
+      alert("200€ irabazi dituzu");
     } else if (correctCount == 3) {
-      alert("300€ irabazi dituzu")
+      alert("300€ irabazi dituzu");
     }
 
     // Calcular el dinero ganado
@@ -559,6 +570,5 @@ $(document).ready(function () {
       location.reload();
     });
     // Realizar la solicitud AJAX para enviar el dinero ganado al servidor
-
   });
 });
