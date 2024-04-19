@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <mainColor>#ffc72e</mainColor>
-    <mainColor>#5d6674</mainColor>
-    <footerColor>#ffffff</footerColor>
+    <mainColor>#ffd500</mainColor>
+    <footerColor>#000000</footerColor>
 </config>
