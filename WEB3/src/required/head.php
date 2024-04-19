@@ -75,14 +75,12 @@
                         <nav>
                             <ul>
                                 <b>
-                                    <li><a href="<?= HREF_SRC_DIR ?>/views/guriBuruz/guriBuruz.php">Guri buruz</a></li>
+                                    <li><a href="<?= HREF_SRC_DIR ?>/views/guriBuruz/guriBuruz.php"><?= trans("guriBuruz") ?></a></li>
                                     <br><br>
-                                    <li><a href="<?= HREF_SRC_DIR ?>/views/datuKuriosoak/datuKuriosoak.php">Datos
-                                            curiosos</a></li><br><br>
+                                    <li><a href="<?= HREF_SRC_DIR ?>/views/datuKuriosoak/datuKuriosoak.php"><?= trans("DatuKuriosoak") ?></a></li><br><br>
                                     <li><a href="<?= HREF_SRC_DIR ?>/views/test/test.php">Test</a></li><br><br>
-                                    <li><a href="<?= HREF_SRC_DIR ?>/views/jokalariDenda/jokalariDenda.php">Jokalari
-                                            denda</a></li><br><br>
-                                    <li><a href="<?= HREF_SRC_DIR ?>/views/plantilla/plantilla.php">Plantilla</a></li>
+                                    <li><a href="<?= HREF_SRC_DIR ?>/views/jokalariDenda/jokalariDenda.php"><?= trans("JokalariDenda") ?></a></li><br><br>
+                                    <li><a href="<?= HREF_SRC_DIR ?>/views/plantilla/plantilla.php"><?= trans("plantila") ?></a></li>
                                     <br><br>
                                 </b>
                             </ul>
@@ -92,13 +90,13 @@
                     
                     <div class="laburpenaDiv">
                         <center>
-                        <h6><b>KOLOREAK KONFIGURATU:</b></h6>
+                        <h6><b><?= trans("KolorKonf") ?>:</b></h6>
                             <form action="<?= HREF_SRC_DIR ?>/required/post.php" method="post">
                                 <input type="hidden" value="changeConfig" name="action" />
                                 <input type="hidden" value="<?= $_SERVER['REQUEST_URI'] ?>" name="returnUrl" />
                                 <div>
                                     <div>
-                                        <label for="mainColor">Kolore nagusia:</label>
+                                        <label for="mainColor"><?= trans("mainColor") ?>:</label>
                                      
                                         <input type="color" id="mainColor" name="mainColor"
                                             value="<?= $config->mainColor ?>" />
@@ -106,13 +104,13 @@
                                 </div>
                                 <div>
                                     <div>
-                                        <label for="footerColor">Bigarren kolorea:</label>
+                                        <label for="footerColor"><?= trans("secondColor") ?>:</label>
                                     
                                         <input type="color" id="footerColor" name="footerColor"
                                             value="<?= $config->footerColor ?>" />
                                     </div>
                                 </div>
-                                <button class="GordeBtn" type="submit">Gorde</button>
+                                <button class="GordeBtn" type="submit"><?= trans("Gorde") ?></button>
                             </form>
                         </center>
                     </div>
@@ -131,7 +129,7 @@
                             fill-rule="evenodd" fill="#17202A"></path>
                     </svg>
                 </button>
-                <input id="search-input" type="text" name="text" class="input__search" placeholder="Search">
+                <input id="search-input" type="text" name="text" class="input__search" placeholder="<?= trans("search") ?>">
             </div>
 
 
@@ -147,7 +145,7 @@
             if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                 $ezizena = $_SESSION["LogIn"];
             } else {
-                $ezizena = "LogIn";
+                $ezizena = trans("logIn");
             }
             ?>
             <div class="logInBtn">

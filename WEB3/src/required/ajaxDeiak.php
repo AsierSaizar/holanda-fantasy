@@ -36,7 +36,7 @@ if (isset($_POST["action"])) {
 
             $conn = connection();
 
-            $sql = "SELECT * FROM weberabiltzaileak where emaila = '$emaila' and pasahitza = '$pasahitza'";
+            $sql = "SELECT * FROM weberabiltzaileak where emaila = '$emaila' and pasahitza = '$pasahitza' and baneado=0";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -47,7 +47,7 @@ if (isset($_POST["action"])) {
             } else {
                 echo "Emaila edo pasahitza ez da zuzena.";
             }
-
+            
             break;
         }
         case "logOut": {

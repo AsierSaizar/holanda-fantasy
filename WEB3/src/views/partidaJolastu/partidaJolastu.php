@@ -9,7 +9,6 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
     $ezizena = $_SESSION["LogIn"];
 
     require_once ("../../required/functions.php");
-    //require_once(HREF_SRC_DIR. "/required/functions.php");
 
     $conn = connection();
 
@@ -45,14 +44,14 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
     <center>
         <div class="diruaJokoan">
             <span>
-                <center><b>Zure dirua:
+                <center><b><?= trans("zureDirua") ?>:
                         <?= $erabiltzailearenDirua ?>€</b>
                 </center>
             </span>
         </div>
         <div class="puntuazioa diruaJokoan">
             <span>
-                <center><b>Zure puntuazio media:
+                <center><b><?= trans("TaldearenMedia") ?>:
                         <?= $puntuazioBatazbestekoa ?></b>
                 </center>
             </span>
@@ -61,9 +60,9 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
         <input type="hidden" id="taldearenDirua" value="<?= $erabiltzailearenDirua ?>">
         <div class="container">
             <div class="zailtasunMotak">
-                <button id="7582" class="zailtasunak zailtasuna1">Dificultad Facil<br>500€</button>
-                <button id="8389" class="zailtasunak zailtasuna2">Dificultad Media<br>1000€</button>
-                <button id="9098" class="zailtasunak zailtasuna3">Dificultad Dificil<br>2000€</button>
+                <button id="7582" class="zailtasunak zailtasuna1"><?= trans("difFacil") ?><br>500€</button>
+                <button id="8389" class="zailtasunak zailtasuna2"><?= trans("difMedio") ?><br>1000€</button>
+                <button id="9098" class="zailtasunak zailtasuna3"><?= trans("difDificil") ?><br>2000€</button>
             </div>
         </div>
     </center>
