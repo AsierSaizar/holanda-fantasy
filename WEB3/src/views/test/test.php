@@ -9,7 +9,7 @@ require_once ("../../required/functions.php");
 $conn = connection();
 // Consulta SQL para obtener preguntas y respuestas
 
-$sql = "SELECT galdera, erantzuna1, erantzuna2, erantzunaZuzena FROM testgalderak ORDER BY RAND() LIMIT 3";
+$sql = "SELECT * FROM testgalderak ORDER BY RAND() LIMIT 3";
 $result = $conn->query($sql);
 
 // Cerrar conexión
@@ -32,7 +32,10 @@ $result = $conn->query($sql);
   <center>
     <br>
     <?php
+
     if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
+      
+      $aukeraLanguage = $_SESSION["_LANGUAGE"];
       if ($result->num_rows > 0) {
         // Variable para almacenar el número de pregunta actual
         $current_question_number = 1;
@@ -40,7 +43,7 @@ $result = $conn->query($sql);
         while ($row = $result->fetch_assoc()) {
           ?>
           <div class="question-container">
-            <p><?= $row["galdera"] ?></p>
+            <p><?= $row["galdera_$aukeraLanguage"] ?></p>
             <ul class="answers">
               <?php
               // Asignar el número de pregunta actual al conjunto de checkboxes
@@ -111,12 +114,12 @@ $result = $conn->query($sql);
       ?>
     </center>
     <center>
-      <button class="testBidali" type="submit">Bidali formularioa
+      <button class="testBidali" type="submit"><?= trans("bidali") ?>
     </center><?php
     } else {
       ?>
     <center>
-      <h1>Log in to complete the tests</h1>
+      <h1><?= trans("LogeatuHauIkusteko") ?></h1>
     </center>
     <?php
     }

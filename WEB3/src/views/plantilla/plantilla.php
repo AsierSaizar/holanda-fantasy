@@ -6,18 +6,18 @@ require_once ("../../required/head.php");
 <link rel="stylesheet" href="<?= HREF_SRC_DIR ?>/views/plantilla/plantilla.css">
 
 <?php
-if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) { 
+if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
     ?>
-    <center><button class="tituloakPlantilla PlantillaErakutsi">Plantillako jokalariak:</button></center>
-    <center><button class="tituloakPlantilla JokokoaErakutsi">Jokoko jokalariak:</button></center><?php
-    $ezizena = $_SESSION["LogIn"];
+    <center><button class="tituloakPlantilla PlantillaErakutsi"><?= trans("TaldekoJokalariak") ?>:</button></center>
+    <center><button class="tituloakPlantilla JokokoaErakutsi"><?= trans("plantillakoJokalariak") ?>:</button></center><?php
+      $ezizena = $_SESSION["LogIn"];
 
-    require_once (APP_DIR . "src/required/functions.php");
+      require_once (APP_DIR . "src/required/functions.php");
 
-    $conn = connection();
+      $conn = connection();
 
-    //JOKALARIEN MEDIA
-    $query = "SELECT AVG(puntuazioa) AS media_puntuacion
+      //JOKALARIEN MEDIA
+      $query = "SELECT AVG(puntuazioa) AS media_puntuacion
                 FROM jokalariak
                 WHERE id IN (
                     SELECT idJokalaria
@@ -29,13 +29,13 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                     ) AND egoera='jokoan'
                 );";
 
-    $result = $conn->query($query);
-    $row = $result->fetch_assoc();
+      $result = $conn->query($query);
+      $row = $result->fetch_assoc();
 
-    $puntuazioBatazbestekoa = $row['media_puntuacion'];
+      $puntuazioBatazbestekoa = $row['media_puntuacion'];
 
-    //JOKALARI KOPURUA
-    $query = "SELECT *
+      //JOKALARI KOPURUA
+      $query = "SELECT *
             FROM jokalariak
             WHERE id IN (
                 SELECT idJokalaria
@@ -47,34 +47,34 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                 ) AND egoera='jokoan'
             );";
 
-    $result = $conn->query($query);
+      $result = $conn->query($query);
 
-    // Verifica si la consulta se ejecutó correctamente
-    if ($result) {
-        // Obtén el número de filas devueltas por la consulta
-        $jokalariKop = $result->num_rows;
-    } else {
-        // Manejo de error si la consulta falla
-        echo "Error al ejecutar la consulta: " . $conn->error;
-    }
-    ?>
+      // Verifica si la consulta se ejecutó correctamente
+      if ($result) {
+          // Obtén el número de filas devueltas por la consulta
+          $jokalariKop = $result->num_rows;
+      } else {
+          // Manejo de error si la consulta falla
+          echo "Error al ejecutar la consulta: " . $conn->error;
+      }
+      ?>
     <center>
         <br>
         <div class="mediaEtaPartida taldekoInfoa">
-            <h1 class="h1textua"><b>Taldearen media:
+            <h1 class="h1textua"><b><?= trans("TaldearenMedia") ?>:
                     <?= $puntuazioBatazbestekoa ?></b>
             </h1>
         </div><br>
 
         <div class="jokalariKop taldekoInfoa">
-            <h1 class="h1textua"><b>Jokalari kopurua:
+            <h1 class="h1textua"><b><?= trans("jokalariKop") ?>:
                     <?= $jokalariKop ?>/11</b>
             </h1>
         </div><br>
 
         <button class="partidaJolastu ">
             <h2 class="h2textua">
-                Partida Jolastu
+                <?= trans("partidaJolastu") ?>
             </h2>
 
             <input id="taldearenMedia" type="hidden" value="<?= $puntuazioBatazbestekoa ?>">
@@ -105,23 +105,23 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                     while ($row = $result->fetch_assoc()): ?>
                         <div class="jokalariBakoitza">
                             <b>
-                            <div class="izenAbizen">
-                                <?= htmlspecialchars($row["izen"] . $row["abizen"]) ?>
-                            </div>
-                            <div class="posizioa">
-                                <?= htmlspecialchars($row['posizioa']) ?>
-                            </div>
-                            <div class="puntuazioa">
-                                <?= htmlspecialchars($row['puntuazioa']) ?>
-                            </div>
-                            <div class="taldea">
-                                <?= htmlspecialchars($row['taldea']) ?>
-                            </div>
-                            <div class="herrialdea">
-                                <?= htmlspecialchars($row['herrialdea']) ?>
-                            </div>
-                            <button id="<?= htmlspecialchars($row['id']) ?>" class="plantilaraEmanBtn">Plantilara
-                                eraman</button>
+                                <div class="izenAbizen">
+                                    <?= htmlspecialchars($row["izen"] . $row["abizen"]) ?>
+                                </div>
+                                <div class="posizioa">
+                                    <?= htmlspecialchars($row['posizioa']) ?>
+                                </div>
+                                <div class="puntuazioa">
+                                    <?= htmlspecialchars($row['puntuazioa']) ?>
+                                </div>
+                                <div class="taldea">
+                                    <?= htmlspecialchars($row['taldea']) ?>
+                                </div>
+                                <div class="herrialdea">
+                                    <?= htmlspecialchars($row['herrialdea']) ?>
+                                </div>
+                                <button id="<?= htmlspecialchars($row['id']) ?>"
+                                    class="plantilaraEmanBtn"><?= trans("PlantillaraEraman") ?></button>
                             </b>
                         </div>
                     <?php endwhile; ?>
@@ -177,7 +177,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
                                     </div>
 
                                     <div>
-                                        <button id="<?= $row['id'] ?>" class="jokoraEmanBtn">Jokora eraman</button>
+                                        <button id="<?= $row['id'] ?>" class="jokoraEmanBtn"><?= trans("jokoraEraman") ?></button>
                                     </div>
                                 </b>
                             </div>
@@ -194,7 +194,7 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
 } else {
     ?>
     <center>
-        <h1>Log in to see your plantilini</h1>
+        <h1><?= trans("LogeatuHauIkusteko") ?></h1>
     </center>
     <?php
 }
@@ -202,5 +202,5 @@ if ((isset($_SESSION['LogIn'])) and (($_SESSION['LogIn']) != "")) {
 ?>
 <br><br>
 <?php
-require_once("../../required/footer.php");
+require_once ("../../required/footer.php");
 ?>

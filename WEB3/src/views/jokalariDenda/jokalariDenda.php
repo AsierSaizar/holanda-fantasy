@@ -34,7 +34,7 @@ if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
     <span>
         <center>
             <button class="search-buttonFiltro" id="Jokalariak">
-                Jokalariak
+            <?= trans("jokalariak") ?>
             </button>
         </center>
 
@@ -42,7 +42,7 @@ if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
     <span>
         <center>
             <button class="search-buttonFiltro" id="Dirua">
-                Sobreak
+            <?= trans("sobreak") ?>
             </button>
         </center>
 
@@ -50,7 +50,7 @@ if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
 </div>
 <div class="diruaAgertzeko diruaAgertzeko2 probaBack1">
     <span>
-        <center>Zure dirua:
+        <center><?= trans("zureDirua") ?>:
             <?= $erabiltzailearenDirua ?>€
         </center>
     </span>
@@ -58,23 +58,23 @@ if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
 <div class="containerDiruaOsoa">
 
     <div class="sobreDivClass" id="Sobre1">
-        <span>Sobre Normal</span><br><br><br><br>
-        <button class="sobreErosiBtn" id="sobreErosiBtn1">Erosi</button><br>
+        <span><?= trans("sobreNormal") ?></span><br><br><br><br>
+        <button class="sobreErosiBtn" id="sobreErosiBtn1"><?= trans("erosi") ?></button><br>
         <span>500€</span>
     </div>
     <div class="sobreDivClass" id="Sobre2">
-        <span>Sobre Especial</span><br><br><br><br>
-        <button class="sobreErosiBtn" id="sobreErosiBtn2">Erosi</button><br>
+        <span><?= trans("sobreEspecial") ?></span><br><br><br><br>
+        <button class="sobreErosiBtn" id="sobreErosiBtn2"><?= trans("erosi") ?></button><br>
         <span>1000€</span>
     </div>
     <div class="sobreDivClass" id="Sobre3">
-        <span>Sobre Epico</span><br><br><br><br>
-        <button class="sobreErosiBtn" id="sobreErosiBtn3">Erosi</button><br>
+        <span><?= trans("sobreEpico") ?></span><br><br><br><br>
+        <button class="sobreErosiBtn" id="sobreErosiBtn3"><?= trans("erosi") ?></button><br>
         <span>2000€</span>
     </div>
     <div class="sobreDivClass" id="Sobre4">
-        <span>Sobre Legendario</span><br><br><br><br>
-        <button class="sobreErosiBtn" id="sobreErosiBtn4">Erosi</button><br>
+        <span><?= trans("sobreLeguendario") ?></span><br><br><br><br>
+        <button class="sobreErosiBtn" id="sobreErosiBtn4"><?= trans("erosi") ?></button><br>
         <span>4000€</span>
     </div>
 </div>
@@ -104,7 +104,7 @@ if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
 
 
         <div class="diruaAgertzeko probaBack1">
-            <span>Zure dirua:
+            <span><?= trans("zureDirua") ?>:
                 <?= $erabiltzailearenDirua ?>€
             </span>
         </div>
@@ -140,7 +140,7 @@ if (isset($_SESSION['LogIn']) && $_SESSION['LogIn'] != "") {
                     </b>
 
                     <button id="erosiJokalaria<?= $row["id"] ?>" class="erosiJokalaria">
-                        Fitxatu jokalaria
+                    <?= trans("erosi jokalaria") ?>
                     </button>
 
 

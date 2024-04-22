@@ -1,54 +1,69 @@
 <?php
 return [
+    //HEAD
+    "guriBuruz" => "About us",
+    "DatuKuriosoak" => "Fun facts",
+    "JokalariDenda" => "Player shop",
+    "plantila" => "template",
+    "KolorKonf" => "Color configuration",
+    "mainColor" => "Main color",
+    "secondColor" => "Secondary color",
+    "Gorde" => "Save",
+    "search" => "Search",
+    "logIn" => "LogIn",
+    "aldatu" => "Change",
+
+
+
+    //datukuriosoak
+
+    "createdBY" => "Created by",
+    "funFactAdd" => "Add a fun fact",
+    "izenaAbizena" => "Name and surnames",
+    "titulo" => "Title",
+    "body" => "Body",
+    "FunFacts" => "Fun facts",
+    "sendFunFact" => "Send fun fact",
+
+    //Test
+
+    "LogeatuHauIkusteko" => "Log in to see this",
+
+    //Denda
+
+    "jokalariak" => "Players",
+    "sobreak" => "Packs",
+    "zureDirua" => "Your money",
+    "erosi" => "Buy",
+    "sobreNormal" => "Normal pack",
+    "sobreEspecial" => "Special pack",
+    "sobreEpico" => "Epic pack",
+    "sobreLeguendario" => "Leguendary pack",
+    "erosi jokalaria" => "Buy player",
+
+    //Denda
     
-    "zestokoVistaPrevia" => "Preview of cart products",
-    "faboriton Lista" => "Favorite products",
-    "saskia" => "Cart",
-    "Bidalketako gastuak" => "Shipping costs",
-    "⚠100€ baino erosketa altuagoetan gastu gabe!⚠" => "⚠In purchases over 100€ without spending!⚠",
-    "Guztira" => "Total",
-    "Prezio totala" => "Total price",
-    "DEFINITIBOA" => "DEFINITIVE",
-    "ErosketaBurutu" => "Make the purchase",
-    "form" => "Fill the form to help us to improve our services",
+    "TaldekoJokalariak" => "Team players",
+    "plantillakoJokalariak" => "Players on the template",
+    "TaldearenMedia" => "Teams avarage",
+    "jokalariKop" => "Players",
+    "partidaJolastu" => "Play game",
+    "PlantillaraEraman" => "Remove from template",
+    "jokoraEraman" => "Bring to the template",
 
 
 
-    
-    "Haukeratu ordainketa burutzeko metodoa" => "choose the method of payment",
-    "Izena" => "Name",
-    "abizena1" => "First surname",
-    "abizena2" => "Second surname",
-    "telefono" => "Phone number",
-    "helbidea" => "Direction",
-    "bankuZenb" => "Bank account number",
-    "PagarCon" => "Pay with",
-    "GordeDira" => "Data have been saved",
-    "ezdaudePro" => "No items in cart",
-    "erosEginda'" => "The purchase has been made",
-    "ErroreaDatu" => "Error when entering data in database",
-    "Eskaerak" => "Orders",
-    "RelleneEsteForEska" => "Enter the data to view your order",
-    "NumeroDePedido" => "Order number",
-    "egoera" => "Order situation",
-    "eskaerarenPrezioTotal" => "Total price of the order",
-    "modelo" => "Model",
-    "kop" => "Quantity",
-    "beteForm" => "Fill the form please",
-    "bidali" => "Send",
-    "IngreseDNI" => "Insert your DNI",
-    "IngreseNUME" => "Insert the order number",
+    // jokoa.php
+    "difFacil" => "Easy difficulty",
+    "difMedio" => "Medium difficulty",
+    "difDificil" => "Difficult difficulty",
 
- 
-
-    // index.php
-    "OngiEtorri" => "Welcome to Black Market", 
-    "GuriBuruztext" => "Hello! Although Black Market is in rehabilitation, our goal is to offer high-quality products at low cost. We offer opportunities and forecasts tailored to the needs of our customers, as long as technology is advancing to the world. Our commitment is to bring quality and customer satisfaction. With us, so that you have at our fingertips the new technologies!", 
-    "GuriBuruz" => "About us", 
-    "kokapena" => "Ubication",
-    "sortzaileak" => "Black Market founders",
-    "Kontaktoa" => "Contact",
-    "Kontakto eta sare sozialak" => "Contact and social medias",
+    // log IN
+    "register" => "Register",
+    "login" => "Log in",
+    "username" => "Username",
+    "password" => "Password",
+    "logOut" => "Log Out",
 
 
     // pagina_konponenteak.php
@@ -60,7 +75,6 @@ return [
     "Ordenatu" => "Order by",
     "Bilatu" => "Search",
     "Balorazioa" => "Valoration",
-    "aldatu" => "Change",
     "Berriak" => "News",
     "Hornitzaileak" => "Suppliers",
     "Denak" => "All",
@@ -88,5 +102,4 @@ return [
     "Hornitzaile bihurtu" => "Become supplier",
     "Ezabatu" => "Delete",
 ];
-    
- 
+

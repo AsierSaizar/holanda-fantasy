@@ -11,8 +11,8 @@ require_once("../../required/head.php");
 
         <div class="tabs">
             <ul>
-                <li class="register_li">Register</li>
-                <li class="login_li">Login</li>
+                <li class="register_li"><?= trans("register") ?></li>
+                <li class="login_li"><?= trans("login") ?></li>
             </ul>
         </div>
 

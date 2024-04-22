@@ -1,63 +1,77 @@
 <?php
 return [
-    //ZESTA
- 
-
-    "zestokoVistaPrevia" => "Saskietako produktuen aurrebista", 
-    "faboriton Lista" => "Gustuko productuak",
-    "saskia" => "Saskia",
-    "Bidalketako gastuak" => "Bidalketako gastuak",
-    "⚠100€ baino erosketa altuagoetan gastu gabe!⚠" => "⚠100€ baino erosketa altuagoetan gastu gabe!⚠",
-    "Guztira" => "Guztira",
-    "Prezio totala" => "Prezio totala",
-    "DEFINITIBOA" => "DEFINITIBOA",
-    "ErosketaBurutu" => "Erosketa Burutu",
-    "form" => "Formulario hau bete hobetzen laguntzeko",
-    "Haukeratu ordainketa burutzeko metodoa" => "Haukeratu ordainketa burutzeko metodoa",
+    //HEAD
 
 
+    "guriBuruz" => "Guri buruz",
+    "DatuKuriosoak" => "Datu kuriosoak",
+    "JokalariDenda" => "Jokalari denda",
+    "plantila" => "Bankiloak",
+    "KolorKonf" => "Koloreak konfiguratu",
+    "mainColor" => "Kolore nagusia",
+    "secondColor" => "Bigarren kolorea",
+    "Gorde" => "Gorde",
+    "search" => "Bilatu",
+    "logIn" => "SaioaHasi",
+    "aldatu" => "Aldatu",
 
 
+    //datukuriosoak
+
+
+    "createdBY" => "Sortzailea",
+    "funFactAdd" => "Datu kuriosoak gehitu",
+    "izenaAbizena" => "Izena eta abizenak",
+    "titulo" => "Izen burua",
+    "body" => "Gorputza",
+    "FunFacts" => "Datu kuriosoak",
+    "sendFunFact" => "Datu kuriosoa bidali",
+
+    //Test
+
+    "LogeatuHauIkusteko" => "Saioa hasi hau ikusteko",
+
+    //Denda
     
-    "Izena" => "Izena",
-    "abizena1" => "Lehen abizena",
-    "abizena2" => "Bigarren abizena",
-    "telefono" => "Mugikor zenbakia",
-    "helbidea" => "Helbidea",
-    "bankuZenb" => "Banku zenbakia",
-    "PagarCon" => "Ordaindu",
-    "GordeDira" => "Gorde dira datuak",
-    "ezdaudePro" => "Ez daude produktuak saskian",
-    "erosEginda'" => "Erosketa egin da",
-    "ErroreaDatu" => "Errorea datu basean sartzerakoan",
-    "Eskaerak" => "Eskaerak",
-    "RelleneEsteForEska" => "Bete datuak zure eskaera ikusteko",
-    "NumeroDePedido" => "Eskaera zenbakia",
-    "egoera" => "Saskiaren egoera",
-    "eskaerarenPrezioTotal" => "Eskaeraren prezio totala",
-    "modelo" => "Modeloa",
-    "kop" => "Kopurua",
-    "beteForm" => "Mesedez bete formularioa",
-    "bidali" => "bidali",
-    "IngreseDNI" => "Sartu zure NAN-a",
-    "IngreseNUME" => "Sartu eskaeraren zenbakia",
+    "jokalariak" => "Jokalariak",
+    "sobreak" => "Sobreak",
+    "zureDirua" => "Zure dirua",
+    "erosi" => "Erosi",
+    "sobreNormal" => "Sobre arrunta",
+    "sobreEspecial" => "Sobre berezia",
+    "sobreEpico" => "Sobre zinistezina",
+    "sobreLeguendario" => "Sobre elezaharra",
+    "erosi jokalaria" => "Jokalaria erosi",
 
-
-
+    //Denda
     
+    "TaldekoJokalariak" => "Taldeko jokalariak",
+    "plantillakoJokalariak" => "Plantilako jokalariak",
+    "TaldearenMedia" => "Taldearen media",
+    "jokalariKop" => "Jokalari kopurua",
+    "partidaJolastu" => "Partida jolastu",
+    "PlantillaraEraman" => "Plantilatik atera",
+    "jokoraEraman" => "Plantillara eraman",
 
-    // index.php
-    "OngiEtorri" => "Ongi etorri BLACK MARKET-era", 
-    "GuriBuruztext" => "¡Kaixo! \"Black Market\" enpresa birgaitzean dagoen arren, gure helburua da kalitate handiko produktuak merkean eskaintzea. Gure bezeroen beharrei egokitutako aukerak eta aurreikuspenak ematen ditugu, beti ere teknologia munduaren aurrez ari garelarik. Gure konpromisoa da kalitatea eta bezeroen pozaren gainean jartzea. Gurekin batera, teknologia berriak gure eskura izan ditzazun!", 
-    "GuriBuruz" => "GuriBuruz", 
-    "kokapena" => "kokapena",
-    "sortzaileak" => "Black Marketen sortzaileak",
-    "Kontaktoa" => "Kontaktoa",
-    "Kontakto eta sare sozialak" => "Kontakto eta sare sozialak",
+
+
+
+
+    // jokoa.php
+    "difFacil" => "Zailtasun erraza",
+    "difMedio" => "Zailtasun erdia",
+    "difDificil" => "Zailtasun zaila",
+    
+    // log IN
+    "register" => "Erregistratu",
+    "login" => "Saioa hasi",
+    "username" => "Ezizena",
+    "password" => "Pasahitza",
+    "logOut" => "Saioa itxi",
 
     // pagina_konponenteak.php
 
-    
+
     "Gure Produktuak" => "Gure Produktuak",
     "Konponenteak" => "Konponenteak",
     "Aukeratu Konponentre mota" => "Aukeratu Konponentre mota",
@@ -66,7 +80,6 @@ return [
     "Ordenatu" => "Ordenatu",
     "Bilatu" => "Bilatu",
     "Balorazioa" => "Balorazioa",
-    "aldatu" => "Aldatu",
     "Berriak" => "Berriak",
     "Hornitzaileak" => "Hornitzaileak",
     "Denak" => "Denak",
@@ -74,7 +87,7 @@ return [
     "saskiraGehitu" => "Saskira Gehitu",
 
 
-        // berriak
+    // berriak
 
     "azalpenaBerriak1" => "Egun batetik aurreragokoak edo lehenagokoak",
     "aurreragokoak" => "Aurreragokoak",
@@ -83,7 +96,7 @@ return [
     "Egun hontara" => "Egun hontara",
 
 
-        // hornitzaileak
+    // hornitzaileak
 
     "HornitzaileaIzateko" => "Hornitzaile izateko formulario hau bete",
     "Telefono" => "Empresarako Telefono Zenbakia",
@@ -95,4 +108,3 @@ return [
     "Hornitzaile bihurtu" => "Hornitzaile bihurtu",
     "Ezabatu" => "Ezabatu",
 ];
- 
