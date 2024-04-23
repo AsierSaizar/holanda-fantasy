@@ -75,7 +75,7 @@
                         <nav>
                             <ul>
                                 <b>
-                                    <li><a href="<?= HREF_SRC_DIR ?>/views/guriBuruz/guriBuruz.php"><?= trans("guriBuruz") ?></a></li>
+                                    <li><a href="<?= HREF_SRC_DIR ?>/views/guriBuruz/index.php"><?= trans("guriBuruz") ?></a></li>
                                     <br><br>
                                     <li><a href="<?= HREF_SRC_DIR ?>/views/datuKuriosoak/datuKuriosoak.php"><?= trans("DatuKuriosoak") ?></a></li><br><br>
                                     <li><a href="<?= HREF_SRC_DIR ?>/views/test/test.php">Test</a></li><br><br>
