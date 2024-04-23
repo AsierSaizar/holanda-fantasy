@@ -21,8 +21,7 @@ function changeConfig($inputValue)
     $config->mainColor = $mainColor;
     $config->footerColor = $footerColor;
 
-
-    $config->asXML(APP_DIR . 'src/required/conf.xml');
+    $config->asXML(APP_DIR . 'src\required\conf.xml');
 
     $returnUrl = isset($_POST['returnUrl']) ? $_POST['returnUrl'] : '/views/guriBuruz/index.php'; // Usa una página por defecto si no se proporciona returnUrl
     header('Location: ' . $returnUrl);
