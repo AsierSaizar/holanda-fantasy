@@ -66,7 +66,6 @@ return [
     "username" => "Nombre de usuario",
     "password" => "Contraseña",
     "logOut" => "Cerrar sesion",
-    // pagina_konponenteak.php
 
     "Erregistroa zuzen egin da!" => "El registro ha salido bien",
     "Aukeratu Konponentre mota" => "Elije el tipo de conponente",
@@ -81,6 +80,15 @@ return [
     "Denak" => "Todos",
     "Ez dago irizpide hauek betetzen dituet produkturik." => "No hay pedidos que cumplan estos criterios.",
     "saskiraGehitu" => "Añadir a la cesta",
+    // guriBuruz.php
+    "h1" => "Sobre nosotros",
+    "p1" => "Bienvenido a Project Manager, donde convertimos ideas en experiencias digitales innovadoras. Con sede en ",
+    "p12" => ", somos un equipo apasionado de desarrolladores, diseñadores y estrategas dedicados a impulsar el éxito de tu empresa a través de soluciones tecnológicas personalizadas.",
+    "h2" => "Nuestra Misión",
+    "p2" => "En Project Manager, nuestra misión es transformar la visión de tu empresa en realidad digital. Creemos en el poder de la tecnología para impulsar el crecimiento empresarial y mejorar la experiencia del usuario. Nos esforzamos por ofrecer soluciones de software de vanguardia que no solo satisfagan las necesidades actuales de tu empresa, sino que también preparen el camino para el éxito futuro.",
+    "h3" => "Nuestro Enfoque",
+    "p3" => "Nos especializamos en el desarrollo de aplicaciones móviles y software a medida para empresas de todos los tamaños y sectores. Ya sea que estés buscando una aplicación móvil intuitiva para tus clientes o una plataforma empresarial compleja para optimizar tus procesos internos, nuestro equipo tiene la experiencia y la creatividad necesarias para hacerlo realidad.",
+
 
 
     // berriak

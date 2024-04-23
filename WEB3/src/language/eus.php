@@ -85,6 +85,14 @@ return [
     "Denak" => "Denak",
     "Ez dago irizpide hauek betetzen dituet produkturik." => "Ez dago irizpide hauek betetzen dituen eskaerarik.",
     "saskiraGehitu" => "Saskira Gehitu",
+    // guriBuruz.php
+    "h1" => "Guri buruz",
+    "p1" => "Ongi etorri Project Manager-era, non ideiak esperientzia digital berritzaile bihurtzen ditugun. Egoitza duela ",
+    "p12" => "-an, garatzaile, diseinatzaile eta estratega pasionatuen talde bat gara, zure enpresaren arrakasta bultzatzeko konponbide teknologiko pertsonalizatuen bidez.",
+    "h2" => "Gure Misioa",
+    "p2" => "Project Manager-en, gure misioa da zure enpresaren ikuspegia errealitate digital bihurtzea. Teknologiaren boterean sinesten dugu enpresa-hazkundea bultzatzeko eta erabiltzailearen esperientzia hobetzeko. Software soluzio aurreratuak eskaintzen saiatzen gara, zure enpresaren behar unekoak asetzeko soilik ez, baina etorkizuneko arrakasta bideratzeko ere.",
+    "h3" => "Gure Hurbilketa",
+    "p3" => "Mugikorretarako aplikazioak eta neurrira egindako softwarea garatzen espezializatu gara, tamaina eta sektore guztietako enpresentzat. Bezeroentzako aplikazio mugikor intuitibo bat bilatzen ari bazara edo zure barne prozesuak optimizatzeko plataforma enpresarial konplexu bat, gure taldeak beharrezkoa den esperientzia eta sormena ditu hori errealitate bihurtzeko.",
 
 
     // berriak

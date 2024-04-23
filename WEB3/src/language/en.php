@@ -80,6 +80,14 @@ return [
     "Denak" => "All",
     "Ez dago irizpide hauek betetzen dituet produkturik." => "There are no orders that meet these criteria.",
     "saskiraGehitu" => "Add to cart",
+    // guriBuruz.php
+    "h1" => "About Us",
+    "p1" => "Welcome to Project Manager, where we turn ideas into innovative digital experiences. Based in ",
+    "p12" => ", we are a passionate team of developers, designers, and strategists dedicated to driving your business's success through customized technology solutions.",
+    "h2" => "Our Mission",
+    "p2" => "At Project Manager, our mission is to transform your business vision into a digital reality. We believe in the power of technology to boost business growth and enhance user experience. We strive to deliver cutting-edge software solutions that not only meet your company's current needs but also pave the way for future success.",
+    "h3" => "Our Approach",
+    "p3" => "We specialize in the development of mobile applications and custom software for businesses of all sizes and sectors. Whether you're looking for an intuitive mobile app for your customers or a complex enterprise platform to optimize your internal processes, our team has the experience and creativity needed to make it a reality.",
 
 
     // berriak
@@ -101,5 +109,8 @@ return [
     "eskaintzen" => "What do you offer??",
     "Hornitzaile bihurtu" => "Become supplier",
     "Ezabatu" => "Delete",
+
+
+    
 ];
 
