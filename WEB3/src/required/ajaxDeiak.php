@@ -44,6 +44,7 @@ if (isset($_POST["action"])) {
                     $ezizenaPertsonaHorrena = $row["ezizena"];
                 }
                 $_SESSION["LogIn"] = $ezizenaPertsonaHorrena;
+                echo "Zuzen sartu zara";
             } else {
                 $sql = "SELECT * FROM weberabiltzaileak where emaila = '$emaila' and pasahitza = '$pasahitza' and baneado=1";
                 $result = $conn->query($sql);

@@ -84,7 +84,7 @@ input[type="submit"]:hover {
     }
 }
 body {
-    background-image: url('holandakoFondoaInter.webp');
+    background-image: url('holandakoFondoaInter.jpeg');
     /* Actualiza con la ruta correcta de la imagen */
     background-size: cover;
     /* Asegura que la imagen cubra todo el espacio disponible */
@@ -98,7 +98,7 @@ body {
 
 @media (max-width: 600px) {
     body {
-        background-image: url('holandakoFondoaInter.webp');
+        background-image: url('holandakoFondoaInter.jpeg');
         /* Puedes usar la misma imagen o una diferente para móviles */
         background-size: cover;
         /* Asegura que la imagen cubra todo el espacio disponible */

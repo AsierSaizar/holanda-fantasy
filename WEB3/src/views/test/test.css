@@ -10,7 +10,7 @@
 }
 
 body {
-  background-image: url('testGalderakFondo.webp');
+  background-image: url('testGalderakFondo.jpeg');
   /* Actualiza con la ruta correcta de la imagen */
   background-size: cover;
   /* Asegura que la imagen cubra todo el espacio disponible */
@@ -24,7 +24,7 @@ body {
 
 @media (max-width: 600px) {
   body {
-      background-image: url('testGalderakFondo.webp');
+      background-image: url('testGalderakFondo.jpeg');
       /* Puedes usar la misma imagen o una diferente para móviles */
       background-size: cover;
       /* Asegura que la imagen cubra todo el espacio disponible */
