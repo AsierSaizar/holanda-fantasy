@@ -82,6 +82,9 @@ input[type="submit"]:hover {
         width: 90%;
         max-width: none;
     }
+    .dato-curioso {
+        width: 300px;
+    }
 }
 body {
     background-image: url('holandakoFondoaInter.jpeg');
