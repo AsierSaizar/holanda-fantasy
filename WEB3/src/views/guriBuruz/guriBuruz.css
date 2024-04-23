@@ -21,7 +21,7 @@ h3{
 }
 
 p {
-    color: #666;
+    color: var(--footerColor);
 }
 
 a {
@@ -29,11 +29,9 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-}
 
 body {
+    gap: 2em;
     background-image: url('GE11.jpg');
     /* Actualiza con la ruta correcta de la imagen */
     background-size: cover;

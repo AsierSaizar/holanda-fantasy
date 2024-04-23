@@ -67,7 +67,7 @@ return [
 
 
     // pagina_konponenteak.php
-    "Gure Produktuak" => "Our products",
+    "Erregistroa zuzen egin da!" => "Correctly registered",
     "Aukeratu Konponentre mota" => "Choose the type of conponent",
     "Konponenteak" => "Conponents",
     "Marka" => "Brand",

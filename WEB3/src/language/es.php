@@ -68,7 +68,7 @@ return [
     "logOut" => "Cerrar sesion",
     // pagina_konponenteak.php
 
-    "Gure Produktuak" => "Nuestros productos",
+    "Erregistroa zuzen egin da!" => "El registro ha salido bien",
     "Aukeratu Konponentre mota" => "Elije el tipo de conponente",
     "Konponenteak" => "Conponentes",
     "Marka" => "Marca",

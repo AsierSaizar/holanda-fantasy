@@ -72,7 +72,7 @@ return [
     // pagina_konponenteak.php
 
 
-    "Gure Produktuak" => "Gure Produktuak",
+    "Erregistroa zuzen egin da!" => "Erregistroa zuzen egin da!",
     "Konponenteak" => "Konponenteak",
     "Aukeratu Konponentre mota" => "Aukeratu Konponentre mota",
     "Marka" => "Marka",
