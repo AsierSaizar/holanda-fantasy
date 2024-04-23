@@ -45,9 +45,19 @@ if (isset($_POST["action"])) {
                 }
                 $_SESSION["LogIn"] = $ezizenaPertsonaHorrena;
             } else {
-                echo "Emaila edo pasahitza ez da zuzena.";
+                $sql = "SELECT * FROM weberabiltzaileak where emaila = '$emaila' and pasahitza = '$pasahitza' and baneado=1";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    echo "Kontu hori baneatuta dago.";
+                }else {
+                    echo "Emaila edo pasahitza ez da zuzena.";
+                }
+                
             }
-            
+
+
+
             break;
         }
         case "logOut": {
@@ -427,7 +437,7 @@ if (isset($_POST["action"])) {
 
             $stmt = $conn->prepare($sql);
             $success = $stmt->execute();
-                
+
 
 
             // Cerrar la conexión

@@ -205,9 +205,8 @@ $(document).ready(function () {
           console.log(response);
         },
       }).done(function (data) {
-        if (data == "Emaila edo pasahitza ez da zuzena.") {
           alert(data);
-        }
+        
         location.reload();
       });
     } else {
