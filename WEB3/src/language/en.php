@@ -80,6 +80,8 @@ return [
     "Denak" => "All",
     "Ez dago irizpide hauek betetzen dituet produkturik." => "There are no orders that meet these criteria.",
     "saskiraGehitu" => "Add to cart",
+
+    
     // guriBuruz.php
     "h1" => "About Us",
     "p1" => "Welcome to Project Manager, where we turn ideas into innovative digital experiences. Based in ",

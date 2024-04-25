@@ -86,6 +86,7 @@ return [
     "Ez dago irizpide hauek betetzen dituet produkturik." => "Ez dago irizpide hauek betetzen dituen eskaerarik.",
     "saskiraGehitu" => "Saskira Gehitu",
     
+    
     // guriBuruz.php
     "h1" => "Guri buruz",
     "p1" => "Ongi etorri Project Manager-era, non ideiak esperientzia digital berritzaile bihurtzen ditugun. Egoitza duela ",

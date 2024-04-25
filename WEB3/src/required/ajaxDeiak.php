@@ -17,9 +17,7 @@ if (isset($_POST["action"])) {
             try {
                 $stmt = $conn->prepare($sql);
                 $success = $stmt->execute();
-                if ($success) {
-                    echo "Erregistroa zuzen egin da!";
-                } else {
+                if (!$success) {
                     echo "Errorea datuak datu-basean sartzerakoan";
                 }
             } catch (Exception $ex) {
@@ -44,15 +42,15 @@ if (isset($_POST["action"])) {
                     $ezizenaPertsonaHorrena = $row["ezizena"];
                 }
                 $_SESSION["LogIn"] = $ezizenaPertsonaHorrena;
-                echo "Zuzen sartu zara";
+                
             } else {
                 $sql = "SELECT * FROM weberabiltzaileak where emaila = '$emaila' and pasahitza = '$pasahitza' and baneado=1";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
-                    echo "Kontu hori baneatuta dago.";
+                    echo "ban";
                 }else {
-                    echo "Emaila edo pasahitza ez da zuzena.";
+                    echo "noCorrect";
                 }
                 
             }
@@ -255,7 +253,7 @@ if (isset($_POST["action"])) {
                             $stmt = $conn->prepare($sql);
                             $success = $stmt->execute();
                             if ($success) {
-                                echo "$jokalariarenIzena tokatu zaizu";
+                                echo "$jokalariarenIzena";
                             } else {
                                 echo "Errorea datuak datu-basean sartzerakoan";
                             }
@@ -263,7 +261,7 @@ if (isset($_POST["action"])) {
                             echo "Errorea datuak datu-basean sartzerakoan";
                         }
                     } else {
-                        echo "Ez daukazu diru nahikoa.";
+                        echo "ezDirua";
                     }
                 } else {
 
@@ -366,7 +364,7 @@ if (isset($_POST["action"])) {
                     $galtzailearenGolak = $irabazlearenGolak - rand(1, 2);
 
 
-                    echo "Partidoa irabazi duzu $irabazlearenGolak-$galtzailearenGolak\n";
+                    echo "👍$irabazlearenGolak-$galtzailearenGolak\n";
 
                     $ezizena = $_SESSION["LogIn"];
                     $sql = "UPDATE weberabiltzaileak
@@ -377,7 +375,7 @@ if (isset($_POST["action"])) {
                     $irabazlearenGolak = rand(2, 5);
                     $galtzailearenGolak = $irabazlearenGolak - rand(1, 2);
 
-                    echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
+                    echo "👎$galtzailearenGolak-$irabazlearenGolak\n";
 
                     $ezizena = $_SESSION["LogIn"];
                     $sql = "UPDATE weberabiltzaileak
@@ -388,7 +386,7 @@ if (isset($_POST["action"])) {
                     $irabazlearenGolak = rand(2, 5);
                     $galtzailearenGolak = $irabazlearenGolak - rand(1, 2);
 
-                    echo "Partidoa galdu duzu $galtzailearenGolak-$irabazlearenGolak\n";
+                    echo "👎$galtzailearenGolak-$irabazlearenGolak\n";
 
                     $ezizena = $_SESSION["LogIn"];
                     $sql = "UPDATE weberabiltzaileak
@@ -401,15 +399,15 @@ if (isset($_POST["action"])) {
                 $success = $stmt->execute();
                 if ($success) {
                     if ($irabazi) {
-                        echo $apostua . "€ Irabazi dituzu";
+                        echo "+".$apostua . "€ ";
                     } else {
-                        echo $apostua . "€ Galdu dituzu";
+                        echo "-".$apostua . "€ ";
                     }
                 } else {
                     echo "Errorea datuak datu-basean sartzerakoan";
                 }
             } else {
-                echo "Ezdaukazu diru nahikoa";
+                echo "ezDirua";
             }
 
 

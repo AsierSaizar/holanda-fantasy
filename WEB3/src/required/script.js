@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  var aukeraHizkuntzaSelect = $("#selectHizkuntzaAukeratzeko").val();
   //LOG IN /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////
 
@@ -162,11 +163,39 @@ $(document).ready(function () {
         },
       }).done(function (data) {
         location.reload();
-        alert(data);
+        var aukeraHizkuntzaSelect = $("#selectHizkuntzaAukeratzeko").val();
+        switch (aukeraHizkuntzaSelect) {
+          case "eus": {
+            alert("Email edo ezizen horrekin iada existitzen da kontu bat.");
+            break;
+          }
+          case "es": {
+            alert("Ya existe una cuenta con ese email.");
+            break;
+          }
+          case "en": {
+            alert("An account with that email already exists.");
+            break;
+          }
+        }
       });
     } else {
       // Si los bordes no son verdes, muestra un mensaje de error o realiza alguna otra acción
-      alert("Sartu datuak zuzen!");
+      var aukeraHizkuntzaSelect = $("#selectHizkuntzaAukeratzeko").val();
+      switch (aukeraHizkuntzaSelect) {
+        case "eus": {
+          alert("Sartu datuak zuzen.");
+          break;
+        }
+        case "es": {
+          alert("Mete los datos correctamente.");
+          break;
+        }
+        case "en": {
+          alert("Insert the data correctly.");
+          break;
+        }
+      }
     }
   });
   //ERREGISTRATU ///////////////////////////////////////////////////////////////////
@@ -205,13 +234,56 @@ $(document).ready(function () {
           console.log(response);
         },
       }).done(function (data) {
-          alert(data);
-        
+        var aukeraHizkuntzaSelect = $("#selectHizkuntzaAukeratzeko").val();
+        switch (aukeraHizkuntzaSelect) {
+          case "eus": {
+            if (data == "ban") {
+              alert("Kontu hau baneatuta dago.");
+            } else if (data == "noCorrect") {
+              alert("Datuak ez dira zuzenak.");
+            }
+
+            break;
+          }
+          case "es": {
+            if (data == "ban") {
+              alert("Esta cuenta esta baneada.");
+            } else if (data == "noCorrect") {
+              alert("Los datos no son correctos.");
+            }
+
+            break;
+          }
+          case "en": {
+            if (data == "ban") {
+              alert("This account is banned.");
+            } else if (data == "noCorrect") {
+              alert("Enter the data correctly.");
+            }
+
+            break;
+          }
+        }
+
         location.reload();
       });
     } else {
       // Si los bordes no son verdes, muestra un mensaje de error o realiza alguna otra acción
-      alert("Ez dago konturik datu horiekin");
+      var aukeraHizkuntzaSelect = $("#selectHizkuntzaAukeratzeko").val();
+        switch (aukeraHizkuntzaSelect) {
+          case "eus": {
+            alert("Ez dago konturik datu horiekin.");
+            break;
+          }
+          case "es": {
+            alert("No existe una cuenta con esos datos.");
+            break;
+          }
+          case "en": {
+            alert("No account found.");
+            break;
+          }
+        }
     }
   });
   //log in ////////////////////////////////////////////////////////////////////////
@@ -319,7 +391,23 @@ $(document).ready(function () {
         console.log(response);
       },
     }).done(function (data) {
-      alert(data);
+      if(data=="ezDirua"){
+        var aukeraHizkuntzaSelect = $("#selectHizkuntzaAukeratzeko").val();
+        switch (aukeraHizkuntzaSelect) {
+          case "eus": {
+            alert("Ezdaukazu diru nahikoa.");
+            break;
+          }
+          case "es": {
+            alert("No tienes suficiente dinero.");
+            break;
+          }
+          case "en": {
+            alert("You dont have enough money.");
+            break;
+          }
+        }
+      }
       location.reload();
     });
   });
@@ -487,7 +575,23 @@ $(document).ready(function () {
         console.log(response);
       },
     }).done(function (data) {
-      if (!(data == "")) {
+      if(data=="ezDirua"){
+        var aukeraHizkuntzaSelect = $("#selectHizkuntzaAukeratzeko").val();
+        switch (aukeraHizkuntzaSelect) {
+          case "eus": {
+            alert("Ezdaukazu diru nahikoa.");
+            break;
+          }
+          case "es": {
+            alert("No tienes suficiente dinero.");
+            break;
+          }
+          case "en": {
+            alert("You dont have enough money.");
+            break;
+          }
+        }
+      }else{
         alert(data);
       }
 
@@ -531,13 +635,13 @@ $(document).ready(function () {
         }
       }
     });
-    alert("Erantzun zuzenak " + correctCount);
+    alert("👍" + correctCount);
     if (correctCount == 1) {
-      alert("100€ irabazi dituzu");
+      alert("+100€ ");
     } else if (correctCount == 2) {
-      alert("200€ irabazi dituzu");
+      alert("+200€ ");
     } else if (correctCount == 3) {
-      alert("300€ irabazi dituzu");
+      alert("+300€ ");
     }
 
     // Calcular el dinero ganado
