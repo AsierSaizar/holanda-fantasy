@@ -8,11 +8,11 @@
 
 
 /*Haimar*/
-define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/GarapenIngurunea/ProjectManager/WEB/holanda-fantasy/WEB3/'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
-define('HREF_VIEWS_DIR', '/GarapenIngurunea/ProjectManager/WEB/holanda-fantasy/WEB3/src/views'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
-define('HREF_SRC_DIR', '/GarapenIngurunea/ProjectManager/WEB/holanda-fantasy/WEB3/src');
+//define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/GarapenIngurunea/ProjectManager/WEB/holanda-fantasy/WEB3/'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
+//define('HREF_VIEWS_DIR', '/GarapenIngurunea/ProjectManager/WEB/holanda-fantasy/WEB3/src/views'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
+//define('HREF_SRC_DIR', '/GarapenIngurunea/ProjectManager/WEB/holanda-fantasy/WEB3/src');
 
     //server
-    //define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . "/"); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
-    //define('HREF_VIEWS_DIR', '/src/views'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
-    //define('HREF_SRC_DIR', '/src'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
+    define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . "/"); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
+    define('HREF_VIEWS_DIR', '/src/views'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
+    define('HREF_SRC_DIR', '/src'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
